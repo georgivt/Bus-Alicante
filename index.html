@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<title>Autobús Alicante</title>
+<title>🚌 Autobús Alicante</title>
 
 <!-- App-like iOS -->
 <meta name="apple-mobile-web-app-capable" content="yes">
@@ -32,6 +32,7 @@
 * {
   -webkit-tap-highlight-color: transparent;
   user-select: none;
+  box-sizing: border-box;
 }
 
 body {
@@ -78,6 +79,12 @@ h2 {
   /* Sombra */
   box-shadow: 0 4px 8px rgba(0,0,0,0.15);
 
+  /* Altura uniforme */
+  min-height: 100px;  /* Ajusta según tu gusto */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
   /* Transición suave */
   transition: transform 0.1s ease, opacity 0.1s ease, box-shadow 0.1s ease;
 }
@@ -98,6 +105,7 @@ h2 {
 .stop-lines {
   font-size: 13px;
   opacity: 0.8;
+  word-wrap: break-word;
 }
 
 /* ===== COLORES VARIADOS ===== */
@@ -124,7 +132,7 @@ h2 {
 
 <body>
 
-<h1>Autobús Alicante</h1>
+<h1>🚌 Autobús Alicante</h1>
 <h2>Selecciona la parada que deseas consultar</h2>
 
 <div class="grid">
