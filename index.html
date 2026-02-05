@@ -1,19 +1,27 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="default">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+
 <title>Paradas autobús</title>
 
+<!-- Comportamiento app-like en iOS -->
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+
+<!-- Icono para pantalla de inicio -->
+<link rel="apple-touch-icon" href="icon.png">
+
 <style>
+/* Variables de color */
 :root {
   --bg: #f2f2f7;
   --card: #ffffff;
   --text: #000000;
 }
 
+/* Modo oscuro automático */
 @media (prefers-color-scheme: dark) {
   :root {
     --bg: #000000;
@@ -22,17 +30,34 @@
   }
 }
 
+/* Sensación nativa */
+* {
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+}
+
+/* Layout general */
 body {
   font-family: -apple-system, system-ui, sans-serif;
   background: var(--bg);
   padding: 16px;
   color: var(--text);
+  margin: 0;
 }
 
+/* Títulos */
 h1 {
   font-size: 22px;
+  margin-bottom: 16px;
 }
 
+h2 {
+  font-size: 14px;
+  opacity: 0.6;
+  margin: 20px 0 10px;
+}
+
+/* Tarjetas de paradas */
 a {
   display: block;
   padding: 14px;
@@ -41,16 +66,30 @@ a {
   border-radius: 12px;
   text-decoration: none;
   color: var(--text);
+  transition: transform 0.05s ease, opacity 0.05s ease;
+}
+
+/* Feedback al tocar */
+a:active {
+  transform: scale(0.98);
+  opacity: 0.9;
 }
 </style>
 </head>
 
 <body>
+
 <h1>🚍 Paradas</h1>
 
+<h2>Centro</h2>
 <a href="https://URL_PARADA_1">Plaza Mayor</a>
-<a href="https://URL_PARADA_2">Hospital</a>
-<a href="https://URL_PARADA_3">Universidad</a>
+<a href="https://URL_PARADA_2">Ayuntamiento</a>
+
+<h2>Salud</h2>
+<a href="https://URL_PARADA_3">Hospital General</a>
+
+<h2>Educación</h2>
+<a href="https://URL_PARADA_4">Universidad</a>
 
 </body>
 </html>
