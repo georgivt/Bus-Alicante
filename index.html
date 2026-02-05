@@ -6,94 +6,76 @@
 
 <title>Paradas autobús</title>
 
-<!-- Comportamiento app-like en iOS -->
+<!-- App-like iOS -->
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
 
-<!-- Icono para pantalla de inicio -->
+<!-- Icono app -->
 <link rel="apple-touch-icon" href="icon.png">
 
 <style>
-/* Variables de color */
+/* ===== COLORES BASE ===== */
 :root {
   --bg: #f2f2f7;
-  --card: #ffffff;
   --text: #000000;
 }
 
-/* Modo oscuro automático */
+/* Modo oscuro */
 @media (prefers-color-scheme: dark) {
   :root {
     --bg: #000000;
-    --card: #1c1c1e;
     --text: #ffffff;
   }
 }
 
-/* Sensación nativa */
+/* ===== UX / RESET ===== */
 * {
   -webkit-tap-highlight-color: transparent;
   user-select: none;
 }
 
-/* Layout general */
 body {
+  margin: 0;
+  padding: 16px;
   font-family: -apple-system, system-ui, sans-serif;
   background: var(--bg);
-  padding: 16px;
   color: var(--text);
-  margin: 0;
 }
 
-/* Títulos */
+/* ===== TÍTULO ===== */
 h1 {
   font-size: 22px;
   margin-bottom: 16px;
 }
 
-h2 {
-  font-size: 14px;
-  opacity: 0.6;
-  margin: 20px 0 10px;
-}
-
-/* Tarjetas de paradas */
-a {
-  display: block;
-  padding: 14px;
-  margin-bottom: 10px;
-  background: var(--card);
-  border-radius: 12px;
-  text-decoration: none;
-  color: var(--text);
-  transition: transform 0.05s ease, opacity 0.05s ease;
-}
-
-/* Feedback al tocar */
-a:active {
-  transform: scale(0.98);
-  opacity: 0.9;
-
+/* ===== GRID 2 COLUMNAS ===== */
 .grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 12px;  
+  gap: 12px;
 }
-.pastel-blue   { background: #dbeafe; }
-.pastel-green  { background: #dcfce7; }
-.pastel-pink   { background: #fce7f3; }
-.pastel-yellow { background: #fef9c3; }
-.pastel-purple { background: #ede9fe; }
 
-a {
-  text-align: center;
-  font-weight: 600;
-
+/* ===== TARJETA PARADA ===== */
 .stop {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   text-align: center;
+
   padding: 16px 12px;
+  border-radius: 14px;
+  text-decoration: none;
+  color: inherit;
+
+  transition: transform 0.05s ease, opacity 0.05s ease;
 }
 
+.stop:active {
+  transform: scale(0.97);
+  opacity: 0.9;
+}
+
+/* ===== TEXTO ===== */
 .stop-name {
   font-size: 16px;
   font-weight: 600;
@@ -102,33 +84,115 @@ a {
 
 .stop-lines {
   font-size: 13px;
-  opacity: 0.7;  
-.stop {
-  min-height: 84px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;  
+  opacity: 0.7;
 }
+
+/* ===== COLORES PASTEL ===== */
+.pastel-blue   { background: #dbeafe; }
+.pastel-green  { background: #dcfce7; }
+.pastel-pink   { background: #fce7f3; }
+.pastel-yellow { background: #fef9c3; }
+.pastel-purple { background: #ede9fe; }
 </style>
 </head>
 
 <body>
 
-<h1>🚍 Selecciona la parada que deseas consultar</h1>
-
-<h2>Centro</h2>
+<h1>🚍 Paradas</h1>
 
 <div class="grid">
-  <a href="https://url1" class="pastel-blue stop">
+
+  <a href="https://URL_PARADA_1" class="stop pastel-blue">
     <div class="stop-name">Plaza Mayor</div>
     <div class="stop-lines">Líneas 3, 7, 21</div>
   </a>
 
-  <a href="https://url2" class="pastel-green stop">
+  <a href="https://URL_PARADA_2" class="stop pastel-green">
     <div class="stop-name">Ayuntamiento</div>
     <div class="stop-lines">Líneas 1, 5</div>
   </a>
+
+  <a href="https://URL_PARADA_3" class="stop pastel-pink">
+    <div class="stop-name">Hospital General</div>
+    <div class="stop-lines">Líneas 2, 8</div>
+  </a>
+
+  <a href="https://URL_PARADA_4" class="stop pastel-purple">
+    <div class="stop-name">Centro de Salud</div>
+    <div class="stop-lines">Líneas 4, 9</div>
+  </a>
+
+  <a href="https://URL_PARADA_5" class="stop pastel-yellow">
+    <div class="stop-name">Universidad</div>
+    <div class="stop-lines">Líneas 6, 12</div>
+  </a>
+
+  <a href="https://URL_PARADA_6" class="stop pastel-blue">
+    <div class="stop-name">Estación</div>
+    <div class="stop-lines">Líneas 10, 11</div>
+  </a>
+
+  <a href="https://URL_PARADA_7" class="stop pastel-green">
+    <div class="stop-name">Biblioteca</div>
+    <div class="stop-lines">Líneas 3, 14</div>
+  </a>
+
+  <a href="https://URL_PARADA_8" class="stop pastel-pink">
+    <div class="stop-name">Mercado</div>
+    <div class="stop-lines">Líneas 5, 18</div>
+  </a>
+
+  <a href="https://URL_PARADA_9" class="stop pastel-purple">
+    <div class="stop-name">Parque Central</div>
+    <div class="stop-lines">Líneas 7, 15</div>
+  </a>
+
+  <a href="https://URL_PARADA_10" class="stop pastel-yellow">
+    <div class="stop-name">Museo</div>
+    <div class="stop-lines">Líneas 2, 16</div>
+  </a>
+
+  <a href="https://URL_PARADA_11" class="stop pastel-blue">
+    <div class="stop-name">Auditorio</div>
+    <div class="stop-lines">Líneas 9, 20</div>
+  </a>
+
+  <a href="https://URL_PARADA_12" class="stop pastel-green">
+    <div class="stop-name">Polideportivo</div>
+    <div class="stop-lines">Líneas 6, 13</div>
+  </a>
+
+  <a href="https://URL_PARADA_13" class="stop pastel-pink">
+    <div class="stop-name">Centro Comercial</div>
+    <div class="stop-lines">Líneas 1, 22</div>
+  </a>
+
+  <a href="https://URL_PARADA_14" class="stop pastel-purple">
+    <div class="stop-name">Residencia</div>
+    <div class="stop-lines">Líneas 8, 17</div>
+  </a>
+
+  <a href="https://URL_PARADA_15" class="stop pastel-yellow">
+    <div class="stop-name">Teatro</div>
+    <div class="stop-lines">Líneas 4, 19</div>
+  </a>
+
+  <a href="https://URL_PARADA_16" class="stop pastel-blue">
+    <div class="stop-name">Playa</div>
+    <div class="stop-lines">Líneas 23, 24</div>
+  </a>
+
+  <a href="https://URL_PARADA_17" class="stop pastel-green">
+    <div class="stop-name">Puerto</div>
+    <div class="stop-lines">Líneas 25, 26</div>
+  </a>
+
+  <a href="https://URL_PARADA_18" class="stop pastel-pink">
+    <div class="stop-name">Aeropuerto</div>
+    <div class="stop-lines">Líneas 27, 28</div>
+  </a>
+
 </div>
-  
+
 </body>
 </html>
