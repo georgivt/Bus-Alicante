@@ -73,20 +73,62 @@ a {
 a:active {
   transform: scale(0.98);
   opacity: 0.9;
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;  
+}
+.pastel-blue   { background: #dbeafe; }
+.pastel-green  { background: #dcfce7; }
+.pastel-pink   { background: #fce7f3; }
+.pastel-yellow { background: #fef9c3; }
+.pastel-purple { background: #ede9fe; }
+
+a {
+  text-align: center;
+  font-weight: 600;
+
+.stop {
+  text-align: center;
+  padding: 16px 12px;
+}
+
+.stop-name {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.stop-lines {
+  font-size: 13px;
+  opacity: 0.7;  
+.stop {
+  min-height: 84px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;  
 }
 </style>
 </head>
 
 <body>
 
-<h1>🚍 Paradas</h1>
+<h1>🚍 Selecciona la parada que deseas consultar</h1>
 
-<h1>🚍 Paradas</h1>
+<h2>Centro</h2>
 
 <div class="grid">
-  <a href="https://qr.vectalia.es/Alicante/consulta.aspx?p=2946">Mercado - Calderón</a>
-  <a href="https://qr.vectalia.es/Alicante/consulta.aspx?p=2947">Luceros - El Sabio</a>
-</div>
+  <a href="https://url1" class="pastel-blue stop">
+    <div class="stop-name">Plaza Mayor</div>
+    <div class="stop-lines">Líneas 3, 7, 21</div>
+  </a>
 
+  <a href="https://url2" class="pastel-green stop">
+    <div class="stop-name">Ayuntamiento</div>
+    <div class="stop-lines">Líneas 1, 5</div>
+  </a>
+</div>
+  
 </body>
 </html>
