@@ -6,22 +6,39 @@
 <title>Paradas autobús</title>
 
 <style>
+:root {
+  --bg: #f2f2f7;
+  --card: #ffffff;
+  --text: #000000;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #000000;
+    --card: #1c1c1e;
+    --text: #ffffff;
+  }
+}
+
 body {
   font-family: -apple-system, system-ui, sans-serif;
-  background: #f2f2f7;
+  background: var(--bg);
   padding: 16px;
+  color: var(--text);
 }
+
 h1 {
   font-size: 22px;
 }
+
 a {
   display: block;
   padding: 14px;
   margin-bottom: 10px;
-  background: white;
+  background: var(--card);
   border-radius: 12px;
   text-decoration: none;
-  color: black;
+  color: var(--text);
 }
 </style>
 </head>
