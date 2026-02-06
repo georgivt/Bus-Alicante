@@ -6,127 +6,154 @@
 
 <title>🚌 Autobús Alicante</title>
 
-<!-- App-like iOS -->
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
 
-<!-- Icono app -->
-<link rel="apple-touch-icon" href="icon.png">
-
 <style>
-/* ===== COLORES BASE ===== */
+/* =========================
+   VARIABLES BASE
+========================= */
 :root {
-  --bg: #f2f2f7;
-  --text: #000000;
+  --bg-light: #f2f2f7;
+  --bg-dark: #0f0f12;
+  --glass-light: rgba(255,255,255,0.55);
+  --glass-dark: rgba(30,30,35,0.55);
+  --border-light: rgba(255,255,255,0.4);
+  --border-dark: rgba(255,255,255,0.15);
 }
 
-/* Modo oscuro */
-@media (prefers-color-scheme: dark) {
-  :root {
-    --bg: #121212;
-    --text: #ffffff;
-  }
-}
-
-/* ===== UX / RESET ===== */
+/* =========================
+   RESET / BASE
+========================= */
 * {
+  box-sizing: border-box;
   -webkit-tap-highlight-color: transparent;
   user-select: none;
-  box-sizing: border-box;
 }
 
 body {
   margin: 0;
-  padding: 16px;
+  padding: 18px;
   font-family: -apple-system, system-ui, sans-serif;
-  background: var(--bg);
-  color: var(--text);
+  background: var(--bg-light);
+  color: #000;
 }
 
-/* ===== TÍTULOS ===== */
+@media (prefers-color-scheme: dark) {
+  body {
+    background: var(--bg-dark);
+    color: #fff;
+  }
+}
+
+/* =========================
+   TÍTULOS
+========================= */
 h1 {
-  font-size: 24px;
-  font-weight: 700;
-  margin-bottom: 4px;
+  font-size: 26px;
+  font-weight: 800;
+  margin: 0 0 4px 0;
 }
 
 h2 {
   font-size: 14px;
   font-weight: 400;
   opacity: 0.7;
-  margin-bottom: 16px;
+  margin: 0 0 18px 0;
 }
 
-/* ===== GRID 2 COLUMNAS ===== */
+/* =========================
+   GRID
+========================= */
 .grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 12px;
+  gap: 14px;
 }
 
-/* ===== TARJETA PARADA (BOTÓN) ===== */
+/* =========================
+   TARJETAS (LIQUID GLASS)
+========================= */
 .stop {
+  position: relative;
+  min-height: 108px;
+  padding: 16px 12px;
+
   display: flex;
   flex-direction: column;
   justify-content: center;
   text-align: center;
 
-  padding: 16px 12px;
-  border-radius: 14px;
+  border-radius: 18px;
   text-decoration: none;
   color: #ffffff;
 
-  /* Sombra */
-  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+  backdrop-filter: blur(18px) saturate(160%);
+  -webkit-backdrop-filter: blur(18px) saturate(160%);
 
-  /* Altura uniforme */
-  min-height: 100px;  /* Ajusta según tu gusto */
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  border: 1px solid var(--border-light);
 
-  /* Transición suave */
-  transition: transform 0.1s ease, opacity 0.1s ease, box-shadow 0.1s ease;
+  box-shadow:
+    0 10px 24px rgba(0,0,0,0.18),
+    inset 0 1px 0 rgba(255,255,255,0.25);
+
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease,
+    filter 0.15s ease;
 }
 
+@media (prefers-color-scheme: dark) {
+  .stop {
+    border: 1px solid var(--border-dark);
+  }
+}
+
+/* Interacción iOS */
 .stop:active {
-  transform: scale(0.95);
-  opacity: 0.9;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  transform: scale(0.96) translateY(2px);
+  filter: brightness(1.1);
+  box-shadow:
+    0 6px 14px rgba(0,0,0,0.35),
+    0 0 18px rgba(255,255,255,0.25);
 }
 
-/* ===== TEXTO ===== */
+/* =========================
+   TEXTO
+========================= */
 .stop-name {
   font-size: 16px;
-  font-weight: 600;
-  margin-bottom: 4px;
+  font-weight: 700;
+  margin-bottom: 6px;
 }
 
 .stop-lines {
   font-size: 13px;
-  opacity: 0.8;
-  word-wrap: break-word;
+  opacity: 0.85;
 }
 
-/* ===== COLORES VARIADOS ===== */
-.color1  { background: #4aa3df; }
-.color2  { background: #28a745; }
-.color3  { background: #e83e8c; }
-.color4  { background: #ffc107; }
-.color5  { background: #6f42c1; }
-.color6  { background: #fd7e14; }
-.color7  { background: #20c997; }
-.color8  { background: #0d6efd; }
-.color9  { background: #6610f2; }
-.color10 { background: #d63384; }
-.color11 { background: #fd7f6f; }
-.color12 { background: #ffa600; }
-.color13 { background: #8dd3c7; }
-.color14 { background: #bebada; }
-.color15 { background: #fb8072; }
-.color16 { background: #80b1d3; }
-.color17 { background: #fdb462; }
-.color18 { background: #b3de69; }
+/* =========================
+   COLORES (GLASS TINT)
+========================= */
+.c1  { background: linear-gradient(135deg, rgba(0,122,255,0.65), rgba(0,90,200,0.65)); }
+.c2  { background: linear-gradient(135deg, rgba(52,199,89,0.65), rgba(36,150,70,0.65)); }
+.c3  { background: linear-gradient(135deg, rgba(255,45,85,0.65), rgba(200,30,65,0.65)); }
+.c4  { background: linear-gradient(135deg, rgba(255,204,0,0.65), rgba(210,160,0,0.65)); }
+.c5  { background: linear-gradient(135deg, rgba(175,82,222,0.65), rgba(130,55,190,0.65)); }
+.c6  { background: linear-gradient(135deg, rgba(255,149,0,0.65), rgba(210,120,0,0.65)); }
+.c7  { background: linear-gradient(135deg, rgba(90,200,250,0.65), rgba(40,160,220,0.65)); }
+.c8  { background: linear-gradient(135deg, rgba(48,209,88,0.65), rgba(30,160,70,0.65)); }
+.c9  { background: linear-gradient(135deg, rgba(191,90,242,0.65), rgba(150,65,200,0.65)); }
+.c10 { background: linear-gradient(135deg, rgba(255,69,58,0.65), rgba(200,45,40,0.65)); }
+.c11 { background: linear-gradient(135deg, rgba(10,132,255,0.65), rgba(0,100,210,0.65)); }
+.c12 { background: linear-gradient(135deg, rgba(255,214,10,0.65), rgba(215,170,0,0.65)); }
+.c13 { background: linear-gradient(135deg, rgba(100,210,255,0.65), rgba(60,170,220,0.65)); }
+.c14 { background: linear-gradient(135deg, rgba(255,159,10,0.65), rgba(210,125,0,0.65)); }
+.c15 { background: linear-gradient(135deg, rgba(172,142,104,0.65), rgba(140,110,80,0.65)); }
+.c16 { background: linear-gradient(135deg, rgba(94,92,230,0.65), rgba(70,65,200,0.65)); }
+.c17 { background: linear-gradient(135deg, rgba(255,99,132,0.65), rgba(210,70,95,0.65)); }
+.c18 { background: linear-gradient(135deg, rgba(0,199,190,0.65), rgba(0,155,145,0.65)); }
+
 </style>
 </head>
 
@@ -137,95 +164,90 @@ h2 {
 
 <div class="grid">
 
-  <a href="https://qr.vectalia.es/Alicante/consulta.aspx?p=4108" class="stop color1">
-    <div class="stop-name">Estación - Maissonave</div>
-    <div class="stop-lines">Líneas 3, 5, 12</div>
-  </a>
+<a class="stop c1" href="https://qr.vectalia.es/Alicante/consulta.aspx?p=4108">
+  <div class="stop-name">Estación - Maissonave</div>
+  <div class="stop-lines">Líneas 3, 5, 12</div>
+</a>
 
-  <a href="https://qr.vectalia.es/Alicante/consulta.aspx?p=4450" class="stop color2">
-    <div class="stop-name">Estación de autobuses</div>
-    <div class="stop-lines">Líneas 6, 24</div>
-  </a>
+<a class="stop c2" href="https://qr.vectalia.es/Alicante/consulta.aspx?p=4450">
+  <div class="stop-name">Estación de autobuses</div>
+  <div class="stop-lines">Líneas 6, 24</div>
+</a>
 
-  <a href="https://qr.vectalia.es/Alicante/consulta.aspx?p=4107" class="stop color3">
-    <div class="stop-name">Estación - Aguilera</div>
-    <div class="stop-lines">Líneas 3, 4, 7</div>
-  </a>
+<a class="stop c3" href="https://qr.vectalia.es/Alicante/consulta.aspx?p=4107">
+  <div class="stop-name">Estación - Aguilera</div>
+  <div class="stop-lines">Líneas 3, 4, 7</div>
+</a>
 
-  <a href="https://qr.vectalia.es/Alicante/consulta.aspx?p=3105" class="stop color4">
-    <div class="stop-name">IES Cavanilles</div>
-    <div class="stop-lines">Líneas 1, 2, 27</div>
-  </a>
+<a class="stop c4" href="https://qr.vectalia.es/Alicante/consulta.aspx?p=3105">
+  <div class="stop-name">IES Cavanilles</div>
+  <div class="stop-lines">Líneas 1, 2, 27</div>
+</a>
 
-  <a href="https://qr.vectalia.es/Alicante/consulta.aspx?p=3126" class="stop color5">
-    <div class="stop-name">Óscar Esplá - Sempere</div>
-    <div class="stop-lines">Líneas 1, 2</div>
-  </a>
+<a class="stop c5" href="https://qr.vectalia.es/Alicante/consulta.aspx?p=3938">
+  <div class="stop-name">Luceros</div>
+  <div class="stop-lines">Líneas 1, 2</div>
+</a>
 
-  <a href="https://qr.vectalia.es/Alicante/consulta.aspx?p=4448" class="stop color6">
-    <div class="stop-name">Óscar Esplá</div>
-    <div class="stop-lines">Línea 23</div>
-  </a>
+<a class="stop c6" href="https://qr.vectalia.es/Alicante/consulta.aspx?p=2947">
+  <div class="stop-name">Luceros - El Sabio</div>
+  <div class="stop-lines">Líneas 6, 9, 12, 22, 23, 24</div>
+</a>
 
-  <a href="https://qr.vectalia.es/Alicante/consulta.aspx?p=4760" class="stop color7">
-    <div class="stop-name">Óscar Esplá</div>
-    <div class="stop-lines">Líneas 7, 9</div>
-  </a>
+<a class="stop c7" href="https://qr.vectalia.es/Alicante/consulta.aspx?p=2946">
+  <div class="stop-name">Mercado - Calderón</div>
+  <div class="stop-lines">Líneas 1, 6, 8, 9, 10, 13, 24</div>
+</a>
 
-  <a href="https://qr.vectalia.es/Alicante/consulta.aspx?p=6202" class="stop color8">
-    <div class="stop-name">Pérez Galdós - Marvá</div>
-    <div class="stop-lines">Línea 4</div>
-  </a>
+<a class="stop c8" href="https://qr.vectalia.es/Alicante/consulta.aspx?p=3937">
+  <div class="stop-name">Mercado - El Sabio</div>
+  <div class="stop-lines">Líneas 1, 2, 5, 12, C6</div>
+</a>
 
-  <a href="https://qr.vectalia.es/Alicante/consulta.aspx?p=4082" class="stop color9">
-    <div class="stop-name">R. Altamira</div>
-    <div class="stop-lines">Líneas 2, 12, 21, 22</div>
-  </a>
+<a class="stop c9" href="https://qr.vectalia.es/Alicante/consulta.aspx?p=4116">
+  <div class="stop-name">Mercado - El Sabio</div>
+  <div class="stop-lines">Líneas 3, 6, 9</div>
+</a>
 
-  <a href="https://qr.vectalia.es/Alicante/consulta.aspx?p=4115" class="stop color10">
-    <div class="stop-name">Calderón - La Lonja</div>
-    <div class="stop-lines">Línea 3</div>
-  </a>
+<a class="stop c10" href="https://qr.vectalia.es/Alicante/consulta.aspx?p=4400">
+  <div class="stop-name">Mercado - San Vicente</div>
+  <div class="stop-lines">Líneas 6, 9, 10</div>
+</a>
 
-  <a href="https://qr.vectalia.es/Alicante/consulta.aspx?p=2946" class="stop color11">
-    <div class="stop-name">Mercado - Calderón</div>
-    <div class="stop-lines">Líneas 1, 6, 8, 9, 10, 13, 24</div>
-  </a>
+<a class="stop c11" href="https://qr.vectalia.es/Alicante/consulta.aspx?p=2902">
+  <div class="stop-name">Mercado - San Vicente</div>
+  <div class="stop-lines">Líneas 1, 3, 24</div>
+</a>
 
-  <a href="https://qr.vectalia.es/Alicante/consulta.aspx?p=3937" class="stop color12">
-    <div class="stop-name">Mercado - El Sabio</div>
-    <div class="stop-lines">Líneas 1, 2, 5, 12, C6</div>
-  </a>
+<a class="stop c12" href="https://qr.vectalia.es/Alicante/consulta.aspx?p=4448">
+  <div class="stop-name">Óscar Esplá</div>
+  <div class="stop-lines">Línea 23</div>
+</a>
 
-  <a href="https://qr.vectalia.es/Alicante/consulta.aspx?p=4116" class="stop color13">
-    <div class="stop-name">Mercado - El Sabio</div>
-    <div class="stop-lines">Líneas 3, 6, 9</div>
-  </a>
+<a class="stop c13" href="https://qr.vectalia.es/Alicante/consulta.aspx?p=4760">
+  <div class="stop-name">Óscar Esplá</div>
+  <div class="stop-lines">Líneas 7, 9</div>
+</a>
 
-  <a href="https://qr.vectalia.es/Alicante/consulta.aspx?p=4400" class="stop color14">
-    <div class="stop-name">Mercado - San Vicente</div>
-    <div class="stop-lines">Líneas 6, 9, 10</div>
-  </a>
+<a class="stop c14" href="https://qr.vectalia.es/Alicante/consulta.aspx?p=3126">
+  <div class="stop-name">Óscar Esplá - Sempere</div>
+  <div class="stop-lines">Líneas 1, 2</div>
+</a>
 
-  <a href="https://qr.vectalia.es/Alicante/consulta.aspx?p=2902" class="stop color15">
-    <div class="stop-name">Mercado - San Vicente</div>
-    <div class="stop-lines">Líneas 1, 3, 24</div>
-  </a>
+<a class="stop c15" href="https://qr.vectalia.es/Alicante/consulta.aspx?p=6202">
+  <div class="stop-name">Pérez Galdós - Marvá</div>
+  <div class="stop-lines">Línea 4</div>
+</a>
 
-  <a href="https://qr.vectalia.es/Alicante/consulta.aspx?p=3938" class="stop color16">
-    <div class="stop-name">Luceros</div>
-    <div class="stop-lines">Líneas 1, 2</div>
-  </a>
+<a class="stop c16" href="https://qr.vectalia.es/Alicante/consulta.aspx?p=4082">
+  <div class="stop-name">R. Altamira</div>
+  <div class="stop-lines">Líneas 2, 12, 21, 22</div>
+</a>
 
-  <a href="https://qr.vectalia.es/Alicante/consulta.aspx?p=2947" class="stop color17">
-    <div class="stop-name">Luceros - El Sabio</div>
-    <div class="stop-lines">Líneas 6, 9, 12, 22, 23, 24</div>
-  </a>
-
-  <a href="https://qr.vectalia.es/Alicante/consulta.aspx?p=3915" class="stop color18">
-    <div class="stop-name">Teatro</div>
-    <div class="stop-lines">Líneas 2, 3, 12, 22</div>
-  </a>
+<a class="stop c17" href="https://qr.vectalia.es/Alicante/consulta.aspx?p=3915">
+  <div class="stop-name">Teatro</div>
+  <div class="stop-lines">Líneas 2, 3, 12, 22</div>
+</a>
 
 </div>
 
