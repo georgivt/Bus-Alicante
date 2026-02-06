@@ -8,13 +8,9 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 
 <style>
-/* =====================
-   RESET / BASE
-===================== */
 * {
   box-sizing: border-box;
   -webkit-tap-highlight-color: transparent;
-  user-select: none;
 }
 
 body {
@@ -32,88 +28,67 @@ body {
   }
 }
 
-/* =====================
-   TÍTULOS
-===================== */
 h1 {
-  font-size: 26px;
+  font-size: 30px;
   font-weight: 800;
-  margin: 0 0 4px;
+  margin: 0 0 6px;
 }
 
 h2 {
-  font-size: 14px;
+  font-size: 16px;
   opacity: 0.7;
-  margin: 0 0 20px;
+  margin: 0 0 22px;
 }
 
-/* =====================
-   LISTA
-===================== */
 .list {
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
 }
 
-/* =====================
-   TARJETA
-===================== */
 .stop {
   position: relative;
-  display: flex;
-  align-items: flex-start;
-  gap: 14px;
-
-  padding: 16px 16px 16px 22px;
-  min-height: 96px;
-
-  border-radius: 18px;
+  padding: 22px 16px 20px 28px;
+  min-height: 120px;
+  border-radius: 22px;
   overflow: hidden;
 
-  background: rgba(255,255,255,0.9);
+  background: rgba(255,255,255,0.94);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
 
   box-shadow:
-    0 8px 20px rgba(0,0,0,0.12),
+    0 10px 24px rgba(0,0,0,0.14),
     inset 0 1px 0 rgba(255,255,255,0.6);
 
   text-decoration: none;
   color: #000;
-
   transition: transform 0.15s ease;
 }
 
 @media (prefers-color-scheme: dark) {
   .stop {
-    background: rgba(30,30,35,0.85);
+    background: rgba(32,32,36,0.9);
     color: #fff;
     box-shadow:
-      0 8px 24px rgba(0,0,0,0.4),
-      inset 0 1px 0 rgba(255,255,255,0.1);
+      0 12px 28px rgba(0,0,0,0.5),
+      inset 0 1px 0 rgba(255,255,255,0.08);
   }
 }
 
 .stop:active {
-  transform: scale(0.97);
+  transform: scale(0.96);
 }
 
-/* =====================
-   FRANJA IZQUIERDA
-===================== */
 .stop::before {
   content: "";
   position: absolute;
   left: 0;
   top: 0;
-  width: 7px;
+  width: 14px;
   height: 100%;
 }
 
-/* =====================
-   RIPPLE
-===================== */
 .stop::after {
   content: "";
   position: absolute;
@@ -131,39 +106,20 @@ h2 {
   opacity: 1;
 }
 
-/* =====================
-   ICONO
-===================== */
-.icon {
-  width: 26px;
-  height: 26px;
-  flex-shrink: 0;
-  margin-top: 2px;
-  opacity: 0.7;
-}
-
-/* =====================
-   TEXTO
-===================== */
-.text {
-  display: flex;
-  flex-direction: column;
-}
-
 .stop-name {
-  font-size: 16px;
+  font-size: 18px;
   font-weight: 700;
-  margin-bottom: 6px;
+  margin-bottom: 8px;
+  line-height: 1.25;
 }
 
 .stop-lines {
-  font-size: 13px;
-  opacity: 0.6;
+  font-size: 14.5px;
+  opacity: 0.65;
+  line-height: 1.3;
 }
 
-/* =====================
-   COLORES FRANJA
-===================== */
+/* Colores */
 .c1::before { background: #007aff; }
 .c2::before { background: #34c759; }
 .c3::before { background: #ff2d55; }
@@ -183,68 +139,94 @@ h2 {
 
 <div class="list">
 
-<a class="stop c1" href="https://qr.vectalia.es/Alicante/consulta.aspx?p=2946">
-  <img src="assets/bus.svg" class="icon" alt="">
-  <div class="text">
-    <div class="stop-name">Mercado - Calderón</div>
-    <div class="stop-lines">Líneas 1, 6, 8, 9, 10, 13, 24</div>
-  </div>
+<a class="stop c1" href="https://qr.vectalia.es/Alicante/consulta.aspx?p=4115">
+  <div class="stop-name">Calderón - La Lonja</div>
+  <div class="stop-lines">Línea 3</div>
 </a>
 
-<a class="stop c2" href="https://qr.vectalia.es/Alicante/consulta.aspx?p=2947">
-  <img src="assets/bus.svg" class="icon" alt="">
-  <div class="text">
-    <div class="stop-name">Luceros - El Sabio</div>
-    <div class="stop-lines">Líneas 6, 9, 12, 22, 23, 24</div>
-  </div>
+<a class="stop c2" href="https://qr.vectalia.es/Alicante/consulta.aspx?p=4107">
+  <div class="stop-name">Estación - Aguilera</div>
+  <div class="stop-lines">Líneas 3, 4, 7</div>
 </a>
 
 <a class="stop c3" href="https://qr.vectalia.es/Alicante/consulta.aspx?p=4108">
-  <img src="assets/bus.svg" class="icon" alt="">
-  <div class="text">
-    <div class="stop-name">Estación - Maissonave</div>
-    <div class="stop-lines">Líneas 3, 5, 12</div>
-  </div>
+  <div class="stop-name">Estación - Maissonave</div>
+  <div class="stop-lines">Líneas 3, 5, 12</div>
 </a>
 
 <a class="stop c4" href="https://qr.vectalia.es/Alicante/consulta.aspx?p=4450">
-  <img src="assets/bus.svg" class="icon" alt="">
-  <div class="text">
-    <div class="stop-name">Estación de autobuses</div>
-    <div class="stop-lines">Líneas 6, 24</div>
-  </div>
+  <div class="stop-name">Estación de autobuses</div>
+  <div class="stop-lines">Líneas 6, 24</div>
+</a>
+
+<a class="stop c5" href="https://qr.vectalia.es/Alicante/consulta.aspx?p=3105">
+  <div class="stop-name">IES Cavanilles</div>
+  <div class="stop-lines">Líneas 1, 2, 27</div>
+</a>
+
+<a class="stop c6" href="https://qr.vectalia.es/Alicante/consulta.aspx?p=3938">
+  <div class="stop-name">Luceros</div>
+  <div class="stop-lines">Líneas 1, 2</div>
+</a>
+
+<a class="stop c7" href="https://qr.vectalia.es/Alicante/consulta.aspx?p=2947">
+  <div class="stop-name">Luceros - El Sabio</div>
+  <div class="stop-lines">Líneas 6, 9, 12, 22, 23, 24</div>
+</a>
+
+<a class="stop c8" href="https://qr.vectalia.es/Alicante/consulta.aspx?p=2946">
+  <div class="stop-name">Mercado - Calderón</div>
+  <div class="stop-lines">Líneas 1, 6, 8, 9, 10, 13, 24</div>
+</a>
+
+<a class="stop c1" href="https://qr.vectalia.es/Alicante/consulta.aspx?p=4116">
+  <div class="stop-name">Mercado - El Sabio</div>
+  <div class="stop-lines">Líneas 3, 6, 9</div>
+</a>
+
+<a class="stop c2" href="https://qr.vectalia.es/Alicante/consulta.aspx?p=3937">
+  <div class="stop-name">Mercado - El Sabio</div>
+  <div class="stop-lines">Líneas 1, 2, 5, 12, C6</div>
+</a>
+
+<a class="stop c3" href="https://qr.vectalia.es/Alicante/consulta.aspx?p=4400">
+  <div class="stop-name">Mercado - San Vicente</div>
+  <div class="stop-lines">Líneas 6, 9, 10</div>
+</a>
+
+<a class="stop c4" href="https://qr.vectalia.es/Alicante/consulta.aspx?p=2902">
+  <div class="stop-name">Mercado - San Vicente</div>
+  <div class="stop-lines">Líneas 1, 3, 24</div>
 </a>
 
 <a class="stop c5" href="https://qr.vectalia.es/Alicante/consulta.aspx?p=4448">
-  <img src="assets/bus.svg" class="icon" alt="">
-  <div class="text">
-    <div class="stop-name">Óscar Esplá</div>
-    <div class="stop-lines">Línea 23</div>
-  </div>
+  <div class="stop-name">Óscar Esplá</div>
+  <div class="stop-lines">Línea 23</div>
 </a>
 
 <a class="stop c6" href="https://qr.vectalia.es/Alicante/consulta.aspx?p=4760">
-  <img src="assets/bus.svg" class="icon" alt="">
-  <div class="text">
-    <div class="stop-name">Óscar Esplá</div>
-    <div class="stop-lines">Líneas 7, 9</div>
-  </div>
+  <div class="stop-name">Óscar Esplá</div>
+  <div class="stop-lines">Líneas 7, 9</div>
 </a>
 
-<a class="stop c7" href="https://qr.vectalia.es/Alicante/consulta.aspx?p=3915">
-  <img src="assets/bus.svg" class="icon" alt="">
-  <div class="text">
-    <div class="stop-name">Teatro</div>
-    <div class="stop-lines">Líneas 2, 3, 12, 22</div>
-  </div>
+<a class="stop c7" href="https://qr.vectalia.es/Alicante/consulta.aspx?p=3126">
+  <div class="stop-name">Óscar Esplá - Sempere</div>
+  <div class="stop-lines">Líneas 1, 2</div>
 </a>
 
-<a class="stop c8" href="https://qr.vectalia.es/Alicante/consulta.aspx?p=4082">
-  <img src="assets/bus.svg" class="icon" alt="">
-  <div class="text">
-    <div class="stop-name">R. Altamira</div>
-    <div class="stop-lines">Líneas 2, 12, 21, 22</div>
-  </div>
+<a class="stop c8" href="https://qr.vectalia.es/Alicante/consulta.aspx?p=6202">
+  <div class="stop-name">Pérez Galdós - Marvá</div>
+  <div class="stop-lines">Línea 4</div>
+</a>
+
+<a class="stop c1" href="https://qr.vectalia.es/Alicante/consulta.aspx?p=4082">
+  <div class="stop-name">R. Altamira</div>
+  <div class="stop-lines">Líneas 2, 12, 21, 22</div>
+</a>
+
+<a class="stop c2" href="https://qr.vectalia.es/Alicante/consulta.aspx?p=3915">
+  <div class="stop-name">Teatro</div>
+  <div class="stop-lines">Líneas 2, 3, 12, 22</div>
 </a>
 
 </div>
