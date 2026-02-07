@@ -18,16 +18,16 @@ body {
   padding: 18px;
   font-family: -apple-system, system-ui, sans-serif;
   background: #f2f2f7;
-  color: #000;
+  color: #fff;
 }
 
 @media (prefers-color-scheme: dark) {
   body {
-    background: #0f0f12;
-    color: #fff;
+    background: #0e0e11;
   }
 }
 
+/* ===== TÍTULOS ===== */
 h1 {
   font-size: 30px;
   font-weight: 800;
@@ -36,66 +36,50 @@ h1 {
 
 h2 {
   font-size: 16px;
-  opacity: 0.7;
+  opacity: 0.8;
   margin: 0 0 22px;
 }
 
+/* ===== GRID ===== */
 .list {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 16px;
 }
 
+/* ===== TARJETA ===== */
 .stop {
   position: relative;
-  padding: 22px 16px 20px 28px;
+  padding: 22px 18px;
   min-height: 120px;
   border-radius: 22px;
   overflow: hidden;
 
-  background: rgba(255,255,255,0.94);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
+  color: #fff;
+  text-decoration: none;
+
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
 
   box-shadow:
-    0 10px 24px rgba(0,0,0,0.14),
-    inset 0 1px 0 rgba(255,255,255,0.6);
+    0 12px 28px rgba(0,0,0,0.35),
+    inset 0 1px 0 rgba(255,255,255,0.25);
 
-  text-decoration: none;
-  color: #000;
   transition: transform 0.15s ease;
-}
-
-@media (prefers-color-scheme: dark) {
-  .stop {
-    background: rgba(32,32,36,0.9);
-    color: #fff;
-    box-shadow:
-      0 12px 28px rgba(0,0,0,0.5),
-      inset 0 1px 0 rgba(255,255,255,0.08);
-  }
 }
 
 .stop:active {
   transform: scale(0.96);
 }
 
-.stop::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 14px;
-  height: 100%;
-}
-
+/* ===== RIPPLE ===== */
 .stop::after {
   content: "";
   position: absolute;
   inset: 0;
   background: radial-gradient(
-    circle,
-    rgba(0,0,0,0.08) 10%,
+    circle at center,
+    rgba(255,255,255,0.35) 10%,
     transparent 60%
   );
   opacity: 0;
@@ -106,6 +90,7 @@ h2 {
   opacity: 1;
 }
 
+/* ===== TEXTO ===== */
 .stop-name {
   font-size: 18px;
   font-weight: 700;
@@ -115,19 +100,19 @@ h2 {
 
 .stop-lines {
   font-size: 14.5px;
-  opacity: 0.65;
+  opacity: 0.85;
   line-height: 1.3;
 }
 
-/* Colores */
-.c1::before { background: #007aff; }
-.c2::before { background: #34c759; }
-.c3::before { background: #ff2d55; }
-.c4::before { background: #ff9500; }
-.c5::before { background: #af52de; }
-.c6::before { background: #5ac8fa; }
-.c7::before { background: #ffcc00; }
-.c8::before { background: #32ade6; }
+/* ===== COLORES SÓLIDOS ===== */
+.c1 { background: linear-gradient(135deg, #007aff, #0051c7); }
+.c2 { background: linear-gradient(135deg, #34c759, #1f8f3d); }
+.c3 { background: linear-gradient(135deg, #ff2d55, #c61c3b); }
+.c4 { background: linear-gradient(135deg, #ff9500, #cc6e00); }
+.c5 { background: linear-gradient(135deg, #af52de, #7b32a8); }
+.c6 { background: linear-gradient(135deg, #5ac8fa, #0071a4); }
+.c7 { background: linear-gradient(135deg, #ffcc00, #c7a100); }
+.c8 { background: linear-gradient(135deg, #32ade6, #007bb8); }
 
 </style>
 </head>
