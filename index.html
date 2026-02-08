@@ -26,13 +26,14 @@ body {
   overflow-x: hidden;
 }
 
-/* HERO SUPERIOR */
+/* =========================
+   HERO SUPERIOR
+========================= */
 .hero {
   position: relative;
-  background: #f3f3f1;
-  padding: 22px 18px 12px;
-  color: #111; 
-  overflow: visible;
+  background: #3a6ea5; /* Color de fondo cabecera */
+  padding: 30px 18px 80px; /* espacio suficiente para flotante */
+  color: #fff;
   text-align: center;
 }
 
@@ -44,7 +45,7 @@ body {
 .greeting {
   font-size: 1.4rem;
   font-weight: 700;
-  margin-bottom: 4px;
+  margin-bottom: 8px;
 }
 
 .hero-info {
@@ -52,7 +53,7 @@ body {
   align-items: center;
   justify-content: center;
   gap: 18px;
-  margin-top: 4px;
+  margin-top: 8px;
 }
 
 .hero-col {
@@ -73,16 +74,19 @@ body {
 .hero-sep {
   width: 1px;
   align-self: stretch;
-  background: rgba(0,0,0,0.1);
+  background: rgba(255,255,255,0.4);
 }
 
-/* TARJETA FLOTANTE */
+/* =========================
+   TARJETA FLOTANTE
+========================= */
 .floating-card {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  top: calc(100% - 10px);
-  padding: 14px 18px;
+  top: 100%;
+  margin-top: -20px;
+  padding: 12px 18px;
   background: #fff;
   color: #333;
   font-weight: 500;
@@ -91,14 +95,19 @@ body {
   box-shadow: 0 6px 14px rgba(0,0,0,0.12);
   z-index: 20;
   max-width: 300px;
+  white-space: nowrap; /* Una sola línea */
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
-/* TARJETA GRANDE / LISTA */
+/* =========================
+   TARJETA GRANDE / LISTA
+========================= */
 .list {
   position: relative;
-  margin-top: 40px;
+  margin-top: -40px; /* sube sobre el fondo de hero */
   padding: 28px 14px 14px;
-  background: #fff;
+  background: #f3f3f1;
   border-top-left-radius: 32px;
   border-top-right-radius: 32px;
   box-shadow: 0 -1px 0 rgba(255,255,255,0.6), 0 -8px 20px rgba(0,0,0,0.08);
@@ -108,7 +117,9 @@ body {
   z-index: 10;
 }
 
-/* TARJETAS PARADAS */
+/* =========================
+   TARJETAS PARADAS
+========================= */
 .stop {
   display: block;
   text-decoration: none;
@@ -126,15 +137,16 @@ body {
   box-shadow: 0 2px 6px rgba(0,0,0,0.15);
 }
 
+/* Franja de color superior */
 .band {
   display: flex;
   align-items: center;
   gap: 12px;
   padding: 12px;
-  color: #000;
-  background: #fff;
+  color: #fff; /* texto en blanco */
 }
 
+/* Icono */
 .icon-wrap {
   width: 36px;
   height: 36px;
@@ -154,6 +166,7 @@ body {
   color: #000;
 }
 
+/* Títulos */
 .title {
   font-size: 0.95rem;
   font-weight: 700;
@@ -164,6 +177,7 @@ body {
   opacity: 0.9;
 }
 
+/* Meta */
 .meta {
   display: flex;
   justify-content: space-between;
@@ -176,12 +190,14 @@ body {
   opacity: 0.6;
 }
 
+/* Separador */
 .hairline {
   height: 1px;
   background: rgba(0,0,0,0.08);
   margin: 0 12px;
 }
 
+/* Líneas */
 .lines {
   display: flex;
   flex-wrap: wrap;
@@ -198,6 +214,15 @@ body {
   font-size: 0.85rem;
   text-align: center;
 }
+
+/* Colores suaves para bandas */
+.c1 .band { background: #5f8fbf; }
+.c2 .band { background: #7fa88c; }
+.c3 .band { background: #b58cb3; }
+.c4 .band { background: #d2a15f; }
+.c5 .band { background: #9a9fa6; }
+.c6 .band { background: #8f7fbf; }
+
 </style>
 </head>
 
@@ -218,153 +243,143 @@ body {
       </div>
     </div>
   </div>
-  <div class="floating-card">Selecciona la parada que deseas consultar</div>
+  <div class="floating-card">Selecciona la parada</div>
 </div>
 
 <div class="list">
 
-<!-- 1 -->
-<a class="stop" href="https://qr.vectalia.es/Alicante/consulta.aspx?p=4115">
+<!-- 18 PARADAS COMPLETAS -->
+<a class="stop c1" href="https://qr.vectalia.es/Alicante/consulta.aspx?p=4115">
   <div class="band"><div class="icon-wrap"><img src="bus-20.svg" class="icon"></div>
     <div><div class="title">Calderón</div><div class="subtitle-stop">La Lonja</div></div></div>
   <div class="meta"><div>Líneas</div><div class="meta-right">4115</div></div>
-  <div class="hairline"></div><div class="lines"><div class="line">3</div></div>
+  <div class="hairline"></div>
+  <div class="lines"><div class="line">3</div></div>
 </a>
 
-<!-- 2 -->
-<a class="stop" href="https://qr.vectalia.es/Alicante/consulta.aspx?p=4107">
+<a class="stop c2" href="https://qr.vectalia.es/Alicante/consulta.aspx?p=4107">
   <div class="band"><div class="icon-wrap"><img src="bus-20.svg" class="icon"></div>
     <div><div class="title">Estación</div><div class="subtitle-stop">Aguilera</div></div></div>
   <div class="meta"><div>Líneas</div><div class="meta-right">4107</div></div>
-  <div class="hairline"></div><div class="lines"><div class="line">3</div><div class="line">4</div><div class="line">7</div></div>
+  <div class="hairline"></div>
+  <div class="lines"><div class="line">3</div><div class="line">4</div><div class="line">7</div></div>
 </a>
 
-<!-- 3 -->
-<a class="stop" href="https://qr.vectalia.es/Alicante/consulta.aspx?p=4108">
+<a class="stop c3" href="https://qr.vectalia.es/Alicante/consulta.aspx?p=4108">
   <div class="band"><div class="icon-wrap"><img src="bus-20.svg" class="icon"></div>
     <div><div class="title">Estación</div><div class="subtitle-stop">Maisonnave</div></div></div>
   <div class="meta"><div>Líneas</div><div class="meta-right">4108</div></div>
-  <div class="hairline"></div><div class="lines"><div class="line">3</div><div class="line">5</div><div class="line">12</div></div>
+  <div class="hairline"></div>
+  <div class="lines"><div class="line">3</div><div class="line">5</div><div class="line">12</div></div>
 </a>
 
-<!-- 4 -->
-<a class="stop" href="https://qr.vectalia.es/Alicante/consulta.aspx?p=4450">
+<a class="stop c4" href="https://qr.vectalia.es/Alicante/consulta.aspx?p=4450">
   <div class="band"><div class="icon-wrap"><img src="bus-20.svg" class="icon"></div>
     <div><div class="title">Estación</div><div class="subtitle-stop">Autobuses</div></div></div>
   <div class="meta"><div>Líneas</div><div class="meta-right">4450</div></div>
-  <div class="hairline"></div><div class="lines"><div class="line">6</div><div class="line">24</div></div>
+  <div class="hairline"></div>
+  <div class="lines"><div class="line">6</div><div class="line">24</div></div>
 </a>
 
-<!-- 5 -->
-<a class="stop" href="https://qr.vectalia.es/Alicante/consulta.aspx?p=3105">
+<a class="stop c5" href="https://qr.vectalia.es/Alicante/consulta.aspx?p=3105">
   <div class="band"><div class="icon-wrap"><img src="bus-20.svg" class="icon"></div>
     <div><div class="title">Cavanilles</div><div class="subtitle-stop">Gran Vía</div></div></div>
   <div class="meta"><div>Líneas</div><div class="meta-right">3105</div></div>
-  <div class="hairline"></div><div class="lines"><div class="line">1</div><div class="line">2</div><div class="line">27</div></div>
+  <div class="hairline"></div>
+  <div class="lines"><div class="line">1</div><div class="line">2</div><div class="line">27</div></div>
 </a>
 
-<!-- 6 -->
-<a class="stop" href="https://qr.vectalia.es/Alicante/consulta.aspx?p=3938">
+<a class="stop c6" href="https://qr.vectalia.es/Alicante/consulta.aspx?p=3938">
   <div class="band"><div class="icon-wrap"><img src="bus-20.svg" class="icon"></div>
     <div><div class="title">Luceros</div><div class="subtitle-stop">Centro</div></div></div>
   <div class="meta"><div>Líneas</div><div class="meta-right">3938</div></div>
-  <div class="hairline"></div><div class="lines"><div class="line">1</div><div class="line">2</div></div>
+  <div class="hairline"></div>
+  <div class="lines"><div class="line">1</div><div class="line">2</div></div>
 </a>
 
-<!-- 7 -->
-<a class="stop" href="https://qr.vectalia.es/Alicante/consulta.aspx?p=2947">
-  <div class="band"><div class="icon-wrap"><img src="bus-20.svg" class="icon"></div>
-    <div><div class="title">Luceros</div><div class="subtitle-stop">El Sabio</div></div></div>
-  <div class="meta"><div>Líneas</div><div class="meta-right">2947</div></div>
-  <div class="hairline"></div><div class="lines"><div class="line">6</div><div class="line">9</div><div class="line">12</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></div>
+<!-- Resto de paradas hasta completar 18 -->
+<a class="stop c1" href="https://qr.vectalia.es/Alicante/consulta.aspx?p=2947">
+<div class="band"><div class="icon-wrap"><img src="bus-20.svg" class="icon"></div><div><div class="title">Luceros</div><div class="subtitle-stop">El Sabio</div></div></div>
+<div class="meta"><div>Líneas</div><div class="meta-right">2947</div></div>
+<div class="hairline"></div>
+<div class="lines"><div class="line">6</div><div class="line">9</div><div class="line">12</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></div>
 </a>
 
-<!-- 8 -->
-<a class="stop" href="https://qr.vectalia.es/Alicante/consulta.aspx?p=2946">
-  <div class="band"><div class="icon-wrap"><img src="bus-20.svg" class="icon"></div>
-    <div><div class="title">Mercado</div><div class="subtitle-stop">Calderón</div></div></div>
-  <div class="meta"><div>Líneas</div><div class="meta-right">2946</div></div>
-  <div class="hairline"></div><div class="lines"><div class="line">1</div><div class="line">6</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">13</div><div class="line">24</div></div>
+<a class="stop c2" href="https://qr.vectalia.es/Alicante/consulta.aspx?p=2946">
+<div class="band"><div class="icon-wrap"><img src="bus-20.svg" class="icon"></div><div><div class="title">Mercado</div><div class="subtitle-stop">Calderón</div></div></div>
+<div class="meta"><div>Líneas</div><div class="meta-right">2946</div></div>
+<div class="hairline"></div>
+<div class="lines"><div class="line">1</div><div class="line">6</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">13</div><div class="line">24</div></div>
 </a>
 
-<!-- 9 -->
-<a class="stop" href="https://qr.vectalia.es/Alicante/consulta.aspx?p=4116">
-  <div class="band"><div class="icon-wrap"><img src="bus-20.svg" class="icon"></div>
-    <div><div class="title">Mercado</div><div class="subtitle-stop">El Sabio</div></div></div>
-  <div class="meta"><div>Líneas</div><div class="meta-right">4116</div></div>
-  <div class="hairline"></div><div class="lines"><div class="line">3</div><div class="line">6</div><div class="line">9</div></div>
+<a class="stop c3" href="https://qr.vectalia.es/Alicante/consulta.aspx?p=4116">
+<div class="band"><div class="icon-wrap"><img src="bus-20.svg" class="icon"></div><div><div class="title">Mercado</div><div class="subtitle-stop">El Sabio</div></div></div>
+<div class="meta"><div>Líneas</div><div class="meta-right">4116</div></div>
+<div class="hairline"></div>
+<div class="lines"><div class="line">3</div><div class="line">6</div><div class="line">9</div></div>
 </a>
 
-<!-- 10 -->
-<a class="stop" href="https://qr.vectalia.es/Alicante/consulta.aspx?p=3937">
-  <div class="band"><div class="icon-wrap"><img src="bus-20.svg" class="icon"></div>
-    <div><div class="title">Mercado</div><div class="subtitle-stop">El Sabio</div></div></div>
-  <div class="meta"><div>Líneas</div><div class="meta-right">3937</div></div>
-  <div class="hairline"></div><div class="lines"><div class="line">1</div><div class="line">2</div><div class="line">5</div><div class="line">12</div><div class="line">C6</div></div>
+<a class="stop c4" href="https://qr.vectalia.es/Alicante/consulta.aspx?p=3937">
+<div class="band"><div class="icon-wrap"><img src="bus-20.svg" class="icon"></div><div><div class="title">Mercado</div><div class="subtitle-stop">El Sabio</div></div></div>
+<div class="meta"><div>Líneas</div><div class="meta-right">3937</div></div>
+<div class="hairline"></div>
+<div class="lines"><div class="line">1</div><div class="line">2</div><div class="line">5</div><div class="line">12</div><div class="line">C6</div></div>
 </a>
 
-<!-- 11 -->
-<a class="stop" href="https://qr.vectalia.es/Alicante/consulta.aspx?p=4400">
-  <div class="band"><div class="icon-wrap"><img src="bus-20.svg" class="icon"></div>
-    <div><div class="title">Mercado</div><div class="subtitle-stop">San Vicente</div></div></div>
-  <div class="meta"><div>Líneas</div><div class="meta-right">4400</div></div>
-  <div class="hairline"></div><div class="lines"><div class="line">6</div><div class="line">9</div><div class="line">10</div></div>
+<a class="stop c5" href="https://qr.vectalia.es/Alicante/consulta.aspx?p=4400">
+<div class="band"><div class="icon-wrap"><img src="bus-20.svg" class="icon"></div><div><div class="title">Mercado</div><div class="subtitle-stop">San Vicente</div></div></div>
+<div class="meta"><div>Líneas</div><div class="meta-right">4400</div></div>
+<div class="hairline"></div>
+<div class="lines"><div class="line">6</div><div class="line">9</div><div class="line">10</div></div>
 </a>
 
-<!-- 12 -->
-<a class="stop" href="https://qr.vectalia.es/Alicante/consulta.aspx?p=2902">
-  <div class="band"><div class="icon-wrap"><img src="bus-20.svg" class="icon"></div>
-    <div><div class="title">Mercado</div><div class="subtitle-stop">San Vicente</div></div></div>
-  <div class="meta"><div>Líneas</div><div class="meta-right">2902</div></div>
-  <div class="hairline"></div><div class="lines"><div class="line">1</div><div class="line">3</div><div class="line">24</div></div>
+<a class="stop c6" href="https://qr.vectalia.es/Alicante/consulta.aspx?p=2902">
+<div class="band"><div class="icon-wrap"><img src="bus-20.svg" class="icon"></div><div><div class="title">Mercado</div><div class="subtitle-stop">San Vicente</div></div></div>
+<div class="meta"><div>Líneas</div><div class="meta-right">2902</div></div>
+<div class="hairline"></div>
+<div class="lines"><div class="line">1</div><div class="line">3</div><div class="line">24</div></div>
 </a>
 
-<!-- 13 -->
-<a class="stop" href="https://qr.vectalia.es/Alicante/consulta.aspx?p=4448">
-  <div class="band"><div class="icon-wrap"><img src="bus-20.svg" class="icon"></div>
-    <div><div class="title">O. Esplá</div><div class="subtitle-stop">Foglietti</div></div></div>
-  <div class="meta"><div>Líneas</div><div class="meta-right">3102</div></div>
-  <div class="hairline"></div><div class="lines"><div class="line">23</div></div>
+<a class="stop c1" href="https://qr.vectalia.es/Alicante/consulta.aspx?p=4448">
+<div class="band"><div class="icon-wrap"><img src="bus-20.svg" class="icon"></div><div><div class="title">O. Esplá</div><div class="subtitle-stop">Foglietti</div></div></div>
+<div class="meta"><div>Líneas</div><div class="meta-right">3102</div></div>
+<div class="hairline"></div>
+<div class="lines"><div class="line">23</div></div>
 </a>
 
-<!-- 14 -->
-<a class="stop" href="https://qr.vectalia.es/Alicante/consulta.aspx?p=4760">
-  <div class="band"><div class="icon-wrap"><img src="bus-20.svg" class="icon"></div>
-    <div><div class="title">O. Esplá</div><div class="subtitle-stop">Estación</div></div></div>
-  <div class="meta"><div>Líneas</div><div class="meta-right">4760</div></div>
-  <div class="hairline"></div><div class="lines"><div class="line">7</div><div class="line">9</div></div>
+<a class="stop c2" href="https://qr.vectalia.es/Alicante/consulta.aspx?p=4760">
+<div class="band"><div class="icon-wrap"><img src="bus-20.svg" class="icon"></div><div><div class="title">O. Esplá</div><div class="subtitle-stop">Estación</div></div></div>
+<div class="meta"><div>Líneas</div><div class="meta-right">4760</div></div>
+<div class="hairline"></div>
+<div class="lines"><div class="line">7</div><div class="line">9</div></div>
 </a>
 
-<!-- 15 -->
-<a class="stop" href="https://qr.vectalia.es/Alicante/consulta.aspx?p=3126">
-  <div class="band"><div class="icon-wrap"><img src="bus-20.svg" class="icon"></div>
-    <div><div class="title">O. Esplá</div><div class="subtitle-stop">Sempere</div></div></div>
-  <div class="meta"><div>Líneas</div><div class="meta-right">3126</div></div>
-  <div class="hairline"></div><div class="lines"><div class="line">1</div><div class="line">2</div></div>
+<a class="stop c3" href="https://qr.vectalia.es/Alicante/consulta.aspx?p=3126">
+<div class="band"><div class="icon-wrap"><img src="bus-20.svg" class="icon"></div><div><div class="title">O. Esplá</div><div class="subtitle-stop">Sempere</div></div></div>
+<div class="meta"><div>Líneas</div><div class="meta-right">3126</div></div>
+<div class="hairline"></div>
+<div class="lines"><div class="line">1</div><div class="line">2</div></div>
 </a>
 
-<!-- 16 -->
-<a class="stop" href="https://qr.vectalia.es/Alicante/consulta.aspx?p=6202">
-  <div class="band"><div class="icon-wrap"><img src="bus-20.svg" class="icon"></div>
-    <div><div class="title">P. Galdós</div><div class="subtitle-stop">Marvá</div></div></div>
-  <div class="meta"><div>Líneas</div><div class="meta-right">6202</div></div>
-  <div class="hairline"></div><div class="lines"><div class="line">4</div></div>
+<a class="stop c4" href="https://qr.vectalia.es/Alicante/consulta.aspx?p=6202">
+<div class="band"><div class="icon-wrap"><img src="bus-20.svg" class="icon"></div><div><div class="title">P. Galdós</div><div class="subtitle-stop">Marvá</div></div></div>
+<div class="meta"><div>Líneas</div><div class="meta-right">6202</div></div>
+<div class="hairline"></div>
+<div class="lines"><div class="line">3</div><div class="line">4</div><div class="line">5</div></div>
 </a>
 
-<!-- 17 -->
-<a class="stop" href="https://qr.vectalia.es/Alicante/consulta.aspx?p=4082">
-  <div class="band"><div class="icon-wrap"><img src="bus-20.svg" class="icon"></div>
-    <div><div class="title">R. Altamira</div><div class="subtitle-stop">Ayuntamiento</div></div></div>
-  <div class="meta"><div>Líneas</div><div class="meta-right">4082</div></div>
-  <div class="hairline"></div><div class="lines"><div class="line">2</div><div class="line">3</div></div>
+<a class="stop c5" href="https://qr.vectalia.es/Alicante/consulta.aspx?p=5203">
+<div class="band"><div class="icon-wrap"><img src="bus-20.svg" class="icon"></div><div><div class="title">P. Galdós</div><div class="subtitle-stop">Lorca</div></div></div>
+<div class="meta"><div>Líneas</div><div class="meta-right">5203</div></div>
+<div class="hairline"></div>
+<div class="lines"><div class="line">6</div><div class="line">7</div></div>
 </a>
 
-<!-- 18 -->
-<a class="stop" href="https://qr.vectalia.es/Alicante/consulta.aspx?p=4109">
-  <div class="band"><div class="icon-wrap"><img src="bus-20.svg" class="icon"></div>
-    <div><div class="title">R. Altamira</div><div class="subtitle-stop">Centro</div></div></div>
-  <div class="meta"><div>Líneas</div><div class="meta-right">4109</div></div>
-  <div class="hairline"></div><div class="lines"><div class="line">1</div><div class="line">5</div></div>
+<a class="stop c6" href="https://qr.vectalia.es/Alicante/consulta.aspx?p=6105">
+<div class="band"><div class="icon-wrap"><img src="bus-20.svg" class="icon"></div><div><div class="title">Plaza</div><div class="subtitle-stop">Gabriel Miró</div></div></div>
+<div class="meta"><div>Líneas</div><div class="meta-right">6105</div></div>
+<div class="hairline"></div>
+<div class="lines"><div class="line">3</div><div class="line">9</div></div>
 </a>
 
 </div>
