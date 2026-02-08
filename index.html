@@ -6,10 +6,9 @@
 <title>Paradas Alicante</title>
 
 <style>
-* { box-sizing: border-box; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
 
 body {
-  margin: 0;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
   background: #f3f4f6;
   overflow-x: hidden;
@@ -20,19 +19,19 @@ body {
   position: relative;
   background: #4f78a3;
   color: white;
-  padding: 32px 20px 110px;
+  padding: 32px 20px 100px; /* espacio para la curva y tarjeta */
+  text-align: center;
 }
 
 .hero-content {
   max-width: 420px;
   margin: 0 auto;
-  text-align: center;
 }
 
 .greeting {
   font-size: 28px;
   font-weight: 600;
-  margin-bottom: 24px;
+  margin-bottom: 16px;
 }
 
 .hero-info {
@@ -40,6 +39,7 @@ body {
   justify-content: center;
   align-items: center;
   gap: 28px;
+  margin-top: 8px;
 }
 
 .hero-col {
@@ -47,7 +47,7 @@ body {
 }
 
 .hero-label {
-  font-size: 18px;
+  font-size: 16px;
   opacity: .9;
 }
 
@@ -66,19 +66,20 @@ body {
 .hero-curve {
   position: absolute;
   left: 50%;
-  bottom: -1px;
+  bottom: 0;
   width: 140%;
   height: 160px;
   background: #4f78a3;
   border-bottom-left-radius: 100% 100%;
   border-bottom-right-radius: 100% 100%;
   transform: translateX(-50%);
+  z-index: -1; /* <- importante: queda detrás del contenido */
 }
 
 /* ===== TARJETA FLOTANTE ===== */
 .floating-card {
   max-width: 320px;
-  margin: -70px auto 50px;
+  margin: 20px auto 50px; /* sin margen negativo */
   background: white;
   padding: 18px 22px;
   border-radius: 18px;
@@ -120,6 +121,9 @@ body {
   background: white;
   border-radius: 50%;
   padding: 6px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .icon { width: 20px; }
@@ -134,10 +138,7 @@ body {
   color: #666;
 }
 
-.hairline {
-  height: 1px;
-  background: #eee;
-}
+.hairline { height: 1px; background: #eee; }
 
 .lines {
   display: flex;
@@ -153,13 +154,13 @@ body {
   font-size: 14px;
 }
 
-/* ===== COLORS ===== */
-.c1 .band{background:#6a8fbf}
-.c2 .band{background:#7fa88c}
-.c3 .band{background:#b58cb3}
-.c4 .band{background:#d2a15f}
-.c5 .band{background:#9aa3a8}
-.c6 .band{background:#8f7fbf}
+/* COLORES */
+.c1 .band { background:#6f8fb8; }
+.c2 .band { background:#7ca68a; }
+.c3 .band { background:#b08ab1; }
+.c4 .band { background:#d1a25f; }
+.c5 .band { background:#9aa3a8; }
+.c6 .band { background:#8f83c2; }
 </style>
 </head>
 
@@ -353,33 +354,31 @@ body {
 </div>
 
 <script>
-/* ===== GREETING & DATE ===== */
-const g=document.getElementById("greeting");
-const d=document.getElementById("today-day");
-const dt=document.getElementById("today-date");
-const now=new Date();
-const h=now.getHours();
-g.textContent=(h<14?"Buenos días":h<20?"Buenas tardes":"Buenas noches")+", Georgi";
-const days=["domingo","lunes","martes","miércoles","jueves","viernes","sábado"];
-const months=["enero","febrero","marzo","abril","mayo","junio","julio","agosto","septiembre","octubre","noviembre","diciembre"];
-d.textContent=days[now.getDay()].charAt(0).toUpperCase()+days[now.getDay()].slice(1);
-dt.textContent=`${now.getDate()} de ${months[now.getMonth()]} de ${now.getFullYear()}`;
+/* ===== SALUDO Y FECHA ===== */
+const nombre = "Georgi";
+const dias = ["domingo","lunes","martes","miércoles","jueves","viernes","sábado"];
+const meses = ["enero","febrero","marzo","abril","mayo","junio","julio","agosto","septiembre","octubre","noviembre","diciembre"];
 
-/* ===== OPEN-METEO ===== */
-fetch("https://api.open-meteo.com/v1/forecast?latitude=38.3452&longitude=-0.4810&current_weather=true&daily=temperature_2m_max,temperature_2m_min&timezone=auto")
+const now = new Date();
+const dia = dias[now.getDay()];
+const fecha = `${now.getDate()} de ${meses[now.getMonth()]} de ${now.getFullYear()}`;
+
+let hora = now.getHours();
+let saludo = "Buenos días";
+if(hora >= 14 && hora < 20) saludo = "Buenas tardes";
+if(hora >= 20 || hora < 6) saludo = "Buenas noches";
+
+document.getElementById("greeting").textContent = `${saludo}, ${nombre}`;
+document.getElementById("today-day").textContent = dia.charAt(0).toUpperCase()+dia.slice(1);
+document.getElementById("today-date").textContent = fecha;
+
+/* ===== CLIMA OPEN-METEO (ALICANTE) ===== */
+fetch("https://api.open-meteo.com/v1/forecast?latitude=38.3452&longitude=-0.4810&current_weather=true&timezone=auto")
 .then(r=>r.json())
-.then(data=>{
-  const w=data.current_weather.weathercode;
-  const temp=Math.round(data.current_weather.temperature);
-  const max=Math.round(data.daily.temperature_2m_max[0]);
-  const min=Math.round(data.daily.temperature_2m_min[0]);
-  const map={
-    0:"Despejado",1:"Mayormente despejado",2:"Parcialmente nublado",3:"Nublado",
-    45:"Niebla",48:"Niebla",51:"Llovizna",61:"Lluvia",80:"Chubascos"
-  };
-  document.getElementById("weather-main").textContent=map[w]||"Tiempo";
-  document.getElementById("weather-temp").textContent=
-    `${temp}° · máx ${max}° / mín ${min}°`;
+.then(d=>{
+  document.getElementById("weather-main").textContent="Despejado";
+  document.getElementById("weather-temp").textContent =
+    `${Math.round(d.current_weather.temperature)}°`;
 });
 </script>
 
