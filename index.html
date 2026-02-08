@@ -82,19 +82,19 @@ body{
 }
 
 /* ===== FLOTANTE ===== */
-.floating{
-  position:absolute;
-  top:0;
-  left:50%;
-  transform:translate(-50%,-50%);
-  background:rgba(255,255,255,.65);
+.floating-card {
+  position: relative;
+  z-index: 10;
+  margin: -40px auto 32px; /* sube la flotante para que quede centrada sobre la tarjeta grande */
+  max-width: 320px; /* opcional, para que no ocupe todo el ancho */
+  padding: 14px 18px;
+  background: rgba(255,255,255,0.6);
   backdrop-filter:blur(22px);
-  padding:14px 22px;
-  border-radius:18px;
-  font-weight:500;
-  white-space:nowrap;
-  box-shadow:0 10px 28px rgba(0,0,0,.18);
-  z-index:10;
+  color: #333;
+  font-weight: 500;
+  text-align: center;
+  border-radius: 14px;
+  box-shadow: 0 6px 14px rgba(0,0,0,0.12);
 }
 
 /* ===== TARJETA GRANDE ===== */
@@ -106,6 +106,7 @@ body{
 
 /* ===== LISTA ===== */
 .list{
+  margin-top: 60px;
   padding:0 16px 28px;
   display:grid;
   grid-template-columns:repeat(2,1fr);
