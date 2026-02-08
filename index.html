@@ -2,132 +2,155 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Autobús Alicante</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Paradas Alicante</title>
 
 <style>
-*{box-sizing:border-box}
-html,body{margin:0;padding:0}
-body{
-  font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","Helvetica Neue",Arial,sans-serif;
-  background:#f2f2f0;
-  color:#111;
-  overflow-x:hidden;
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  background: #f3f4f6;
+  overflow-x: hidden;
 }
 
 /* ===== HERO ===== */
-.hero{
-  position:relative;
-  background:linear-gradient(180deg,#4f79a6 0%,#3f6893 100%);
-  padding:22px 18px 130px;
-  color:#fff;
-}
-.hero::after{
-  content:"";
-  position:absolute;
-  left:-15%;
-  right:-15%;
-  bottom:-80px;
-  height:160px;
-  background:inherit;
-  border-bottom-left-radius:50% 100%;
-  border-bottom-right-radius:50% 100%;
-}
-.hero-content{max-width:720px;margin:0 auto}
-.greeting{font-size:1.6rem;font-weight:700}
-.hero-info{
-  margin-top:18px;
-  display:flex;
-  justify-content:center;
-  align-items:stretch;
-  gap:22px;
-}
-.hero-col{text-align:center}
-.hero-label{font-size:.9rem;opacity:.85}
-.hero-value{font-size:1.05rem;font-weight:600}
-.hero-sep{width:1px;background:rgba(255,255,255,.45)}
-
-/* ===== FLOATING CARD ===== */
-.floating-card{
-  position:relative;
-  z-index:10;
-  max-width:720px;
-  margin:-54px auto 28px;
-  padding:14px 20px;
-  background:#fff;
-  color:#333;
-  text-align:center;
-  font-weight:500;
-  border-radius:14px;
-  box-shadow:0 6px 14px rgba(0,0,0,.12);
+.hero {
+  position: relative;
+  background: #4f78a3;
+  color: white;
+  padding: 32px 20px 110px;
 }
 
-/* ===== LIST ===== */
-.list{
-  max-width:720px;
-  margin:0 auto;
-  padding:20px 14px 30px;
-  display:grid;
-  grid-template-columns:repeat(2,minmax(0,1fr));
-  gap:14px;
+.hero-content {
+  max-width: 420px;
+  margin: 0 auto;
+  text-align: center;
 }
 
-/* ===== STOP CARD ===== */
-.stop{
-  text-decoration:none;
-  color:#000;
-  background:#fff;
-  border-radius:16px;
-  overflow:hidden;
-  box-shadow:0 4px 10px rgba(0,0,0,.12);
-  transition:.15s ease;
+.greeting {
+  font-size: 28px;
+  font-weight: 600;
+  margin-bottom: 24px;
 }
-.stop:active{
-  transform:scale(.97);
-  box-shadow:0 2px 6px rgba(0,0,0,.15);
-}
-.band{
-  display:flex;
-  align-items:center;
-  gap:12px;
-  padding:12px;
-  color:#fff;
-}
-.icon-wrap{
-  width:40px;height:40px;
-  background:#fff;
-  border-radius:50%;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-}
-.icon{width:26px;height:26px}
-.title{font-weight:700;font-size:.95rem}
-.subtitle-stop{font-size:.8rem;opacity:.9}
 
-.meta{
-  display:flex;
-  justify-content:space-between;
-  padding:8px 12px;
-  font-size:.75rem;
+.hero-info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 28px;
 }
-.meta-right{opacity:.6}
-.hairline{
-  height:1px;
-  background:rgba(0,0,0,.08);
-  margin:0 12px;
+
+.hero-col {
+  text-align: center;
 }
-.lines{
-  display:flex;
-  flex-wrap:wrap;
-  gap:6px;
-  padding:10px 12px 14px;
+
+.hero-label {
+  font-size: 18px;
+  opacity: .9;
 }
-.line{
-  background:#ededed;
-  border-radius:10px;
-  padding:4px 8px;
-  font-size:.85rem;
+
+.hero-value {
+  font-size: 22px;
+  font-weight: 500;
+}
+
+.hero-sep {
+  width: 1px;
+  align-self: stretch;
+  background: rgba(255,255,255,.5);
+}
+
+/* CURVA AZUL */
+.hero-curve {
+  position: absolute;
+  left: 50%;
+  bottom: -1px;
+  width: 140%;
+  height: 160px;
+  background: #4f78a3;
+  border-bottom-left-radius: 100% 100%;
+  border-bottom-right-radius: 100% 100%;
+  transform: translateX(-50%);
+}
+
+/* ===== TARJETA FLOTANTE ===== */
+.floating-card {
+  max-width: 320px;
+  margin: -70px auto 50px;
+  background: white;
+  padding: 18px 22px;
+  border-radius: 18px;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 500;
+  box-shadow: 0 12px 30px rgba(0,0,0,.18);
+}
+
+/* ===== LISTA ===== */
+.list {
+  max-width: 420px;
+  margin: 0 auto 70px;
+  padding: 0 14px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+}
+
+/* ===== TARJETAS ===== */
+.stop {
+  background: white;
+  border-radius: 18px;
+  text-decoration: none;
+  color: inherit;
+  overflow: hidden;
+  box-shadow: 0 6px 18px rgba(0,0,0,.12);
+}
+
+.band {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px;
+  color: white;
+}
+
+.icon-wrap {
+  background: white;
+  border-radius: 50%;
+  padding: 6px;
+}
+
+.icon { width: 20px; }
+
+.title { font-weight: 600; }
+.subtitle-stop { opacity: .9; font-size: 14px; }
+
+.meta {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 14px;
+  color: #666;
+}
+
+.hairline {
+  height: 1px;
+  background: #eee;
+}
+
+.lines {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  padding: 12px 14px 16px;
+}
+
+.line {
+  background: #eee;
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-size: 14px;
 }
 
 /* ===== COLORS ===== */
@@ -145,18 +168,22 @@ body{
 <div class="hero">
   <div class="hero-content">
     <div class="greeting" id="greeting"></div>
+
     <div class="hero-info">
       <div class="hero-col">
         <div class="hero-label" id="today-day"></div>
         <div class="hero-value" id="today-date"></div>
       </div>
+
       <div class="hero-sep"></div>
+
       <div class="hero-col">
         <div class="hero-label" id="weather-main"></div>
         <div class="hero-value" id="weather-temp"></div>
       </div>
     </div>
   </div>
+  <div class="hero-curve"></div>
 </div>
 
 <div class="floating-card">
@@ -164,7 +191,6 @@ body{
 </div>
 
 <div class="list">
-
 <!-- 18 PARADAS -->
 <!-- (exactamente las que definimos, con cambios incluidos) -->
 
