@@ -60,14 +60,11 @@ body {
   border-radius: 24px;
   text-decoration: none;
   color: #000;
-
   background: rgba(255,255,255,0.92);
   backdrop-filter: blur(14px);
-
   box-shadow:
     0 4px 10px rgba(0,0,0,0.10),
     inset 0 1px 0 rgba(255,255,255,0.6);
-
   transition:
     transform 0.15s cubic-bezier(.25,.8,.25,1),
     box-shadow 0.15s cubic-bezier(.25,.8,.25,1);
@@ -75,8 +72,7 @@ body {
 
 .stop:active {
   transform: scale(0.97);
-  box-shadow:
-    0 2px 6px rgba(0,0,0,0.12);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.12);
 }
 
 /* ===== FRANJA ===== */
@@ -123,7 +119,6 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 2px;
 }
 
 .meta-left {
@@ -136,7 +131,7 @@ body {
   font-weight: 600;
 }
 
-/* ===== SEPARADOR FINO ===== */
+/* ===== SEPARADOR ===== */
 .hairline {
   height: 0.5px;
   background: rgba(0,0,0,0.12);
@@ -148,7 +143,7 @@ body {
   display: flex;
   gap: 10px;
   flex-wrap: nowrap;
-  padding-bottom: 4px;
+  padding-bottom: 6px;
 }
 
 .line {
@@ -177,69 +172,187 @@ body {
 
 <div class="list">
 
-<!-- EJEMPLO 1 -->
-<a class="stop c1" href="https://qr.vectalia.es/Alicante/consulta.aspx?p=2946">
+<!-- Calderón - La Lonja -->
+<a class="stop c1" href="https://qr.vectalia.es/Alicante/consulta.aspx?p=4115">
   <div class="band">
     <div class="icon-wrap"><img src="bus-20.svg" class="icon"></div>
-    <div>
-      <div class="title">Mercado</div>
-      <div class="subtitle-stop">Calderón</div>
-    </div>
+    <div><div class="title">Calderón</div><div class="subtitle-stop">La Lonja</div></div>
   </div>
-
-  <div class="meta">
-    <div class="meta-left">Líneas</div>
-    <div class="meta-right">2946</div>
-  </div>
-
+  <div class="meta"><div class="meta-left">Líneas</div><div class="meta-right">4115</div></div>
   <div class="hairline"></div>
-
-  <div class="lines">
-    <div class="line">1</div><div class="line">6</div><div class="line">8</div>
-    <div class="line">9</div><div class="line">10</div><div class="line">13</div><div class="line">24</div>
-  </div>
+  <div class="lines"><div class="line">3</div></div>
 </a>
 
-<!-- EJEMPLO 2 -->
-<a class="stop c2" href="https://qr.vectalia.es/Alicante/consulta.aspx?p=2947">
-  <div class="band">
-    <div class="icon-wrap"><img src="bus-20.svg" class="icon"></div>
-    <div>
-      <div class="title">Luceros</div>
-      <div class="subtitle-stop">El Sabio</div>
-    </div>
-  </div>
-
-  <div class="meta">
-    <div class="meta-left">Líneas</div>
-    <div class="meta-right">2947</div>
-  </div>
-
+<!-- Estación - Aguilera -->
+<a class="stop c2" href="https://qr.vectalia.es/Alicante/consulta.aspx?p=4107">
+  <div class="band"><div class="icon-wrap"><img src="bus-20.svg" class="icon"></div>
+  <div><div class="title">Estación</div><div class="subtitle-stop">Aguilera</div></div></div>
+  <div class="meta"><div class="meta-left">Líneas</div><div class="meta-right">4107</div></div>
   <div class="hairline"></div>
-
-  <div class="lines">
-    <div class="line">6</div><div class="line">9</div><div class="line">12</div>
-    <div class="line">22</div><div class="line">23</div><div class="line">24</div>
-  </div>
+  <div class="lines"><div class="line">3</div><div class="line">4</div><div class="line">7</div></div>
 </a>
 
-<!-- 👉 El resto de paradas siguen EXACTAMENTE este patrón -->
+<!-- Estación - Maisonnave -->
+<a class="stop c3" href="https://qr.vectalia.es/Alicante/consulta.aspx?p=4108">
+  <div class="band"><div class="icon-wrap"><img src="bus-20.svg" class="icon"></div>
+  <div><div class="title">Estación</div><div class="subtitle-stop">Maisonnave</div></div></div>
+  <div class="meta"><div class="meta-left">Líneas</div><div class="meta-right">4108</div></div>
+  <div class="hairline"></div>
+  <div class="lines"><div class="line">3</div><div class="line">5</div><div class="line">12</div></div>
+</a>
+
+<!-- Estación de autobuses -->
+<a class="stop c4" href="https://qr.vectalia.es/Alicante/consulta.aspx?p=4450">
+  <div class="band"><div class="icon-wrap"><img src="bus-20.svg" class="icon"></div>
+  <div><div class="title">Estación</div><div class="subtitle-stop">Autobuses</div></div></div>
+  <div class="meta"><div class="meta-left">Líneas</div><div class="meta-right">4450</div></div>
+  <div class="hairline"></div>
+  <div class="lines"><div class="line">6</div><div class="line">24</div></div>
+</a>
+
+<!-- IES Cavanilles -->
+<a class="stop c5" href="https://qr.vectalia.es/Alicante/consulta.aspx?p=3105">
+  <div class="band"><div class="icon-wrap"><img src="bus-20.svg" class="icon"></div>
+  <div><div class="title">IES</div><div class="subtitle-stop">Cavanilles</div></div></div>
+  <div class="meta"><div class="meta-left">Líneas</div><div class="meta-right">3105</div></div>
+  <div class="hairline"></div>
+  <div class="lines"><div class="line">1</div><div class="line">2</div><div class="line">27</div></div>
+</a>
+
+<!-- Luceros -->
+<a class="stop c6" href="https://qr.vectalia.es/Alicante/consulta.aspx?p=3938">
+  <div class="band"><div class="icon-wrap"><img src="bus-20.svg" class="icon"></div>
+  <div><div class="title">Luceros</div><div class="subtitle-stop">&nbsp;</div></div></div>
+  <div class="meta"><div class="meta-left">Líneas</div><div class="meta-right">3938</div></div>
+  <div class="hairline"></div>
+  <div class="lines"><div class="line">1</div><div class="line">2</div></div>
+</a>
+
+<!-- Luceros - El Sabio -->
+<a class="stop c1" href="https://qr.vectalia.es/Alicante/consulta.aspx?p=2947">
+  <div class="band"><div class="icon-wrap"><img src="bus-20.svg" class="icon"></div>
+  <div><div class="title">Luceros</div><div class="subtitle-stop">El Sabio</div></div></div>
+  <div class="meta"><div class="meta-left">Líneas</div><div class="meta-right">2947</div></div>
+  <div class="hairline"></div>
+  <div class="lines"><div class="line">6</div><div class="line">9</div><div class="line">12</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></div>
+</a>
+
+<!-- Mercado - Calderón -->
+<a class="stop c2" href="https://qr.vectalia.es/Alicante/consulta.aspx?p=2946">
+  <div class="band"><div class="icon-wrap"><img src="bus-20.svg" class="icon"></div>
+  <div><div class="title">Mercado</div><div class="subtitle-stop">Calderón</div></div></div>
+  <div class="meta"><div class="meta-left">Líneas</div><div class="meta-right">2946</div></div>
+  <div class="hairline"></div>
+  <div class="lines"><div class="line">1</div><div class="line">6</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">13</div><div class="line">24</div></div>
+</a>
+
+<!-- Mercado - El Sabio -->
+<a class="stop c3" href="https://qr.vectalia.es/Alicante/consulta.aspx?p=4116">
+  <div class="band"><div class="icon-wrap"><img src="bus-20.svg" class="icon"></div>
+  <div><div class="title">Mercado</div><div class="subtitle-stop">El Sabio</div></div></div>
+  <div class="meta"><div class="meta-left">Líneas</div><div class="meta-right">4116</div></div>
+  <div class="hairline"></div>
+  <div class="lines"><div class="line">3</div><div class="line">6</div><div class="line">9</div></div>
+</a>
+
+<!-- Mercado - El Sabio -->
+<a class="stop c4" href="https://qr.vectalia.es/Alicante/consulta.aspx?p=3937">
+  <div class="band"><div class="icon-wrap"><img src="bus-20.svg" class="icon"></div>
+  <div><div class="title">Mercado</div><div class="subtitle-stop">El Sabio</div></div></div>
+  <div class="meta"><div class="meta-left">Líneas</div><div class="meta-right">3937</div></div>
+  <div class="hairline"></div>
+  <div class="lines"><div class="line">1</div><div class="line">2</div><div class="line">5</div><div class="line">12</div><div class="line">C6</div></div>
+</a>
+
+<!-- Mercado - San Vicente -->
+<a class="stop c5" href="https://qr.vectalia.es/Alicante/consulta.aspx?p=4400">
+  <div class="band"><div class="icon-wrap"><img src="bus-20.svg" class="icon"></div>
+  <div><div class="title">Mercado</div><div class="subtitle-stop">San Vicente</div></div></div>
+  <div class="meta"><div class="meta-left">Líneas</div><div class="meta-right">4400</div></div>
+  <div class="hairline"></div>
+  <div class="lines"><div class="line">6</div><div class="line">9</div><div class="line">10</div></div>
+</a>
+
+<!-- Mercado - San Vicente -->
+<a class="stop c6" href="https://qr.vectalia.es/Alicante/consulta.aspx?p=2902">
+  <div class="band"><div class="icon-wrap"><img src="bus-20.svg" class="icon"></div>
+  <div><div class="title">Mercado</div><div class="subtitle-stop">San Vicente</div></div></div>
+  <div class="meta"><div class="meta-left">Líneas</div><div class="meta-right">2902</div></div>
+  <div class="hairline"></div>
+  <div class="lines"><div class="line">1</div><div class="line">3</div><div class="line">24</div></div>
+</a>
+
+<!-- Óscar Esplá -->
+<a class="stop c1" href="https://qr.vectalia.es/Alicante/consulta.aspx?p=4448">
+  <div class="band"><div class="icon-wrap"><img src="bus-20.svg" class="icon"></div>
+  <div><div class="title">Óscar Esplá</div><div class="subtitle-stop">&nbsp;</div></div></div>
+  <div class="meta"><div class="meta-left">Líneas</div><div class="meta-right">4448</div></div>
+  <div class="hairline"></div>
+  <div class="lines"><div class="line">23</div></div>
+</a>
+
+<!-- Óscar Esplá -->
+<a class="stop c2" href="https://qr.vectalia.es/Alicante/consulta.aspx?p=4760">
+  <div class="band"><div class="icon-wrap"><img src="bus-20.svg" class="icon"></div>
+  <div><div class="title">Óscar Esplá</div><div class="subtitle-stop">&nbsp;</div></div></div>
+  <div class="meta"><div class="meta-left">Líneas</div><div class="meta-right">4760</div></div>
+  <div class="hairline"></div>
+  <div class="lines"><div class="line">7</div><div class="line">9</div></div>
+</a>
+
+<!-- Óscar Esplá - Sempere -->
+<a class="stop c3" href="https://qr.vectalia.es/Alicante/consulta.aspx?p=3126">
+  <div class="band"><div class="icon-wrap"><img src="bus-20.svg" class="icon"></div>
+  <div><div class="title">Óscar Esplá</div><div class="subtitle-stop">Sempere</div></div></div>
+  <div class="meta"><div class="meta-left">Líneas</div><div class="meta-right">3126</div></div>
+  <div class="hairline"></div>
+  <div class="lines"><div class="line">1</div><div class="line">2</div></div>
+</a>
+
+<!-- Pérez Galdós - Marvá -->
+<a class="stop c4" href="https://qr.vectalia.es/Alicante/consulta.aspx?p=6202">
+  <div class="band"><div class="icon-wrap"><img src="bus-20.svg" class="icon"></div>
+  <div><div class="title">Pérez Galdós</div><div class="subtitle-stop">Marvá</div></div></div>
+  <div class="meta"><div class="meta-left">Líneas</div><div class="meta-right">6202</div></div>
+  <div class="hairline"></div>
+  <div class="lines"><div class="line">4</div></div>
+</a>
+
+<!-- R. Altamira -->
+<a class="stop c5" href="https://qr.vectalia.es/Alicante/consulta.aspx?p=4082">
+  <div class="band"><div class="icon-wrap"><img src="bus-20.svg" class="icon"></div>
+  <div><div class="title">R. Altamira</div><div class="subtitle-stop">&nbsp;</div></div></div>
+  <div class="meta"><div class="meta-left">Líneas</div><div class="meta-right">4082</div></div>
+  <div class="hairline"></div>
+  <div class="lines"><div class="line">2</div><div class="line">12</div><div class="line">21</div><div class="line">22</div></div>
+</a>
+
+<!-- Teatro -->
+<a class="stop c6" href="https://qr.vectalia.es/Alicante/consulta.aspx?p=3915">
+  <div class="band"><div class="icon-wrap"><img src="bus-20.svg" class="icon"></div>
+  <div><div class="title">Teatro</div><div class="subtitle-stop">&nbsp;</div></div></div>
+  <div class="meta"><div class="meta-left">Líneas</div><div class="meta-right">3915</div></div>
+  <div class="hairline"></div>
+  <div class="lines"><div class="line">2</div><div class="line">3</div><div class="line">12</div><div class="line">22</div></div>
+</a>
 
 </div>
 
 <script>
 const now = new Date();
-const hours = now.getHours();
+const h = now.getHours();
+let g = "Buenos días";
+if (h >= 14 && h < 20) g = "Buenas tardes";
+if (h >= 20 || h < 6) g = "Buenas noches";
+document.getElementById("greeting").textContent = g + ", Georgi";
 
-let greeting = "Buenos días";
-if (hours >= 14 && hours < 20) greeting = "Buenas tardes";
-if (hours >= 20 || hours < 6) greeting = "Buenas noches";
-
-document.getElementById("greeting").textContent = greeting + ", Georgi";
-
-const options = { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' };
 document.getElementById("date").textContent =
-  now.toLocaleDateString('es-ES', options);
+  now.toLocaleDateString("es-ES", {
+    weekday: "long",
+    day: "numeric",
+    month: "long",
+    year: "numeric"
+  });
 </script>
 
 </body>
