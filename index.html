@@ -83,7 +83,7 @@ body{
 .big-card{
   background:#f3f3f1;
   border-radius:28px 28px 0 0;
-  padding-top:70px;
+  padding-top:42px;
 }
 
 /* ===== LISTA ===== */
@@ -354,7 +354,9 @@ document.getElementById("greeting").textContent=
 
 const days=["domingo","lunes","martes","miércoles","jueves","viernes","sábado"];
 const months=["enero","febrero","marzo","abril","mayo","junio","julio","agosto","septiembre","octubre","noviembre","diciembre"];
-document.getElementById("day").textContent=days[now.getDay()].toUpperCase();
+const dayName = days[now.getDay()];
+document.getElementById("day").textContent =
+dayName.charAt(0).toUpperCase() + dayName.slice(1);
 document.getElementById("date").textContent=
 `${now.getDate()} de ${months[now.getMonth()]} de ${now.getFullYear()}`;
 
