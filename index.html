@@ -26,50 +26,33 @@ body {
   overflow-x: hidden;
 }
 
-/* =========================
-   HERO SUPERIOR
-========================= */
-
+/* HERO SUPERIOR */
 .hero {
   position: relative;
-  background: #f3f3f1; /* quitar azul */
-  padding: 22px 18px 20px; /* reducir padding inferior */
-  color: #111; /* texto oscuro */
-  overflow: hidden;
-}
-
-.hero::after {
-  content: "";
-  position: absolute;
-  left: -10%;
-  right: -10%;
-  bottom: -40px;
-  height: 80px;
-  background: #f3f3f1; /* igual al body */
-  border-bottom-left-radius: 50% 100%;
-  border-bottom-right-radius: 50% 100%;
+  background: #f3f3f1;
+  padding: 22px 18px 12px;
+  color: #111; 
+  overflow: visible;
+  text-align: center;
 }
 
 .hero-content {
   max-width: 720px;
   margin: 0 auto;
-  text-align: center;
 }
 
-/* Saludo */
 .greeting {
   font-size: 1.4rem;
   font-weight: 700;
-  margin-bottom: 10px;
+  margin-bottom: 4px;
 }
 
-/* Info fecha / clima */
 .hero-info {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 18px;
-  margin-top: 12px;
+  margin-top: 4px;
 }
 
 .hero-col {
@@ -79,7 +62,7 @@ body {
 .hero-label {
   font-size: 0.9rem;
   opacity: 0.85;
-  margin-bottom: 4px;
+  margin-bottom: 2px;
 }
 
 .hero-value {
@@ -93,103 +76,84 @@ body {
   background: rgba(0,0,0,0.1);
 }
 
-/* =========================
-   TARJETA FLOTANTE
-========================= */
-
+/* TARJETA FLOTANTE */
 .floating-card {
-  position: relative;
-  z-index: 10;
-  margin: 20px 12px 32px; /* ajustar margen superior */
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: calc(100% - 10px);
   padding: 14px 18px;
-
   background: #fff;
   color: #333;
   font-weight: 500;
   text-align: center;
-
   border-radius: 14px;
-
-  box-shadow:
-    0 6px 14px rgba(0,0,0,0.12);
+  box-shadow: 0 6px 14px rgba(0,0,0,0.12);
+  z-index: 20;
+  max-width: 300px;
 }
 
-/* =========================
-   CONTENEDOR LISTA
-========================= */
-
+/* TARJETA GRANDE / LISTA */
 .list {
-  margin-top: 0px;
+  position: relative;
+  margin-top: 40px;
   padding: 28px 14px 14px;
-
-  background: #f3f3f1;
-
+  background: #fff;
   border-top-left-radius: 32px;
   border-top-right-radius: 32px;
-
-  box-shadow:
-    0 -1px 0 rgba(255,255,255,0.6),
-    0 -8px 20px rgba(0,0,0,0.08);
-
+  box-shadow: 0 -1px 0 rgba(255,255,255,0.6), 0 -8px 20px rgba(0,0,0,0.08);
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 14px;
+  z-index: 10;
 }
 
-/* =========================
-   TARJETAS PARADAS
-========================= */
-
+/* TARJETAS PARADAS */
 .stop {
   display: block;
   text-decoration: none;
   color: inherit;
-
   background: #fff;
   border-radius: 16px;
   padding: 0;
   overflow: hidden;
-
-  box-shadow:
-    0 4px 10px rgba(0,0,0,0.12);
-
-  transition: transform 0.15s ease,
-              box-shadow 0.15s ease;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.12);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
 
 .stop:active {
   transform: scale(0.97);
-  box-shadow:
-    0 2px 6px rgba(0,0,0,0.15);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
 }
 
-/* Franja superior */
 .band {
   display: flex;
   align-items: center;
   gap: 12px;
   padding: 12px;
-
-  color: #fff;
+  color: #000;
+  background: #fff;
 }
 
-/* Icono */
 .icon-wrap {
   width: 36px;
   height: 36px;
   flex-shrink: 0;
-
+  background: #fff;
+  border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
 }
 
 .icon {
-  width: 28px;
-  height: 28px;
+  width: 20px;
+  height: 20px;
+  fill: #000;
+  color: #000;
 }
 
-/* Títulos */
 .title {
   font-size: 0.95rem;
   font-weight: 700;
@@ -200,7 +164,6 @@ body {
   opacity: 0.9;
 }
 
-/* Meta */
 .meta {
   display: flex;
   justify-content: space-between;
@@ -209,22 +172,16 @@ body {
   color: #000;
 }
 
-.meta-left {
-  font-weight: 500;
-}
-
 .meta-right {
   opacity: 0.6;
 }
 
-/* Separador */
 .hairline {
   height: 1px;
   background: rgba(0,0,0,0.08);
   margin: 0 12px;
 }
 
-/* Líneas */
 .lines {
   display: flex;
   flex-wrap: wrap;
@@ -236,25 +193,11 @@ body {
   min-width: 28px;
   padding: 4px 8px;
   border-radius: 10px;
-
   background: #f0f0f0;
   color: #000;
-
   font-size: 0.85rem;
   text-align: center;
 }
-
-/* =========================
-   COLORES SUAVES VARIADOS
-========================= */
-
-.c1 .band { background: #5f8fbf; }
-.c2 .band { background: #7fa88c; }
-.c3 .band { background: #b58cb3; }
-.c4 .band { background: #d2a15f; }
-.c5 .band { background: #9a9fa6; }
-.c6 .band { background: #8f7fbf; }
-
 </style>
 </head>
 
@@ -275,65 +218,154 @@ body {
       </div>
     </div>
   </div>
-</div>
-
-<div class="floating-card">
-  Selecciona la parada que deseas consultar
+  <div class="floating-card">Selecciona la parada que deseas consultar</div>
 </div>
 
 <div class="list">
 
-<!-- 18 PARADAS -->
-
-<a class="stop c1" href="https://qr.vectalia.es/Alicante/consulta.aspx?p=4115">
+<!-- 1 -->
+<a class="stop" href="https://qr.vectalia.es/Alicante/consulta.aspx?p=4115">
   <div class="band"><div class="icon-wrap"><img src="bus-20.svg" class="icon"></div>
-  <div><div class="title">Calderón</div><div class="subtitle-stop">La Lonja</div></div></div>
+    <div><div class="title">Calderón</div><div class="subtitle-stop">La Lonja</div></div></div>
   <div class="meta"><div>Líneas</div><div class="meta-right">4115</div></div>
-  <div class="hairline"></div>
-  <div class="lines"><div class="line">3</div></div>
+  <div class="hairline"></div><div class="lines"><div class="line">3</div></div>
 </a>
 
-<a class="stop c2" href="https://qr.vectalia.es/Alicante/consulta.aspx?p=4107">
+<!-- 2 -->
+<a class="stop" href="https://qr.vectalia.es/Alicante/consulta.aspx?p=4107">
   <div class="band"><div class="icon-wrap"><img src="bus-20.svg" class="icon"></div>
-  <div><div class="title">Estación</div><div class="subtitle-stop">Aguilera</div></div></div>
+    <div><div class="title">Estación</div><div class="subtitle-stop">Aguilera</div></div></div>
   <div class="meta"><div>Líneas</div><div class="meta-right">4107</div></div>
-  <div class="hairline"></div>
-  <div class="lines"><div class="line">3</div><div class="line">4</div><div class="line">7</div></div>
+  <div class="hairline"></div><div class="lines"><div class="line">3</div><div class="line">4</div><div class="line">7</div></div>
 </a>
 
-<a class="stop c3" href="https://qr.vectalia.es/Alicante/consulta.aspx?p=4108">
+<!-- 3 -->
+<a class="stop" href="https://qr.vectalia.es/Alicante/consulta.aspx?p=4108">
   <div class="band"><div class="icon-wrap"><img src="bus-20.svg" class="icon"></div>
-  <div><div class="title">Estación</div><div class="subtitle-stop">Maisonnave</div></div></div>
+    <div><div class="title">Estación</div><div class="subtitle-stop">Maisonnave</div></div></div>
   <div class="meta"><div>Líneas</div><div class="meta-right">4108</div></div>
-  <div class="hairline"></div>
-  <div class="lines"><div class="line">3</div><div class="line">5</div><div class="line">12</div></div>
+  <div class="hairline"></div><div class="lines"><div class="line">3</div><div class="line">5</div><div class="line">12</div></div>
 </a>
 
-<a class="stop c4" href="https://qr.vectalia.es/Alicante/consulta.aspx?p=4450">
+<!-- 4 -->
+<a class="stop" href="https://qr.vectalia.es/Alicante/consulta.aspx?p=4450">
   <div class="band"><div class="icon-wrap"><img src="bus-20.svg" class="icon"></div>
-  <div><div class="title">Estación</div><div class="subtitle-stop">Autobuses</div></div></div>
+    <div><div class="title">Estación</div><div class="subtitle-stop">Autobuses</div></div></div>
   <div class="meta"><div>Líneas</div><div class="meta-right">4450</div></div>
-  <div class="hairline"></div>
-  <div class="lines"><div class="line">6</div><div class="line">24</div></div>
+  <div class="hairline"></div><div class="lines"><div class="line">6</div><div class="line">24</div></div>
 </a>
 
-<a class="stop c5" href="https://qr.vectalia.es/Alicante/consulta.aspx?p=3105">
+<!-- 5 -->
+<a class="stop" href="https://qr.vectalia.es/Alicante/consulta.aspx?p=3105">
   <div class="band"><div class="icon-wrap"><img src="bus-20.svg" class="icon"></div>
-  <div><div class="title">Cavanilles</div><div class="subtitle-stop">Gran Vía</div></div></div>
+    <div><div class="title">Cavanilles</div><div class="subtitle-stop">Gran Vía</div></div></div>
   <div class="meta"><div>Líneas</div><div class="meta-right">3105</div></div>
-  <div class="hairline"></div>
-  <div class="lines"><div class="line">1</div><div class="line">2</div><div class="line">27</div></div>
+  <div class="hairline"></div><div class="lines"><div class="line">1</div><div class="line">2</div><div class="line">27</div></div>
 </a>
 
-<a class="stop c6" href="https://qr.vectalia.es/Alicante/consulta.aspx?p=3938">
+<!-- 6 -->
+<a class="stop" href="https://qr.vectalia.es/Alicante/consulta.aspx?p=3938">
   <div class="band"><div class="icon-wrap"><img src="bus-20.svg" class="icon"></div>
-  <div><div class="title">Luceros</div><div class="subtitle-stop">Centro</div></div></div>
+    <div><div class="title">Luceros</div><div class="subtitle-stop">Centro</div></div></div>
   <div class="meta"><div>Líneas</div><div class="meta-right">3938</div></div>
-  <div class="hairline"></div>
-  <div class="lines"><div class="line">1</div><div class="line">2</div></div>
+  <div class="hairline"></div><div class="lines"><div class="line">1</div><div class="line">2</div></div>
 </a>
 
-<!-- El resto de las paradas siguen igual que tu código original, incluidas todas -->
+<!-- 7 -->
+<a class="stop" href="https://qr.vectalia.es/Alicante/consulta.aspx?p=2947">
+  <div class="band"><div class="icon-wrap"><img src="bus-20.svg" class="icon"></div>
+    <div><div class="title">Luceros</div><div class="subtitle-stop">El Sabio</div></div></div>
+  <div class="meta"><div>Líneas</div><div class="meta-right">2947</div></div>
+  <div class="hairline"></div><div class="lines"><div class="line">6</div><div class="line">9</div><div class="line">12</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></div>
+</a>
+
+<!-- 8 -->
+<a class="stop" href="https://qr.vectalia.es/Alicante/consulta.aspx?p=2946">
+  <div class="band"><div class="icon-wrap"><img src="bus-20.svg" class="icon"></div>
+    <div><div class="title">Mercado</div><div class="subtitle-stop">Calderón</div></div></div>
+  <div class="meta"><div>Líneas</div><div class="meta-right">2946</div></div>
+  <div class="hairline"></div><div class="lines"><div class="line">1</div><div class="line">6</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">13</div><div class="line">24</div></div>
+</a>
+
+<!-- 9 -->
+<a class="stop" href="https://qr.vectalia.es/Alicante/consulta.aspx?p=4116">
+  <div class="band"><div class="icon-wrap"><img src="bus-20.svg" class="icon"></div>
+    <div><div class="title">Mercado</div><div class="subtitle-stop">El Sabio</div></div></div>
+  <div class="meta"><div>Líneas</div><div class="meta-right">4116</div></div>
+  <div class="hairline"></div><div class="lines"><div class="line">3</div><div class="line">6</div><div class="line">9</div></div>
+</a>
+
+<!-- 10 -->
+<a class="stop" href="https://qr.vectalia.es/Alicante/consulta.aspx?p=3937">
+  <div class="band"><div class="icon-wrap"><img src="bus-20.svg" class="icon"></div>
+    <div><div class="title">Mercado</div><div class="subtitle-stop">El Sabio</div></div></div>
+  <div class="meta"><div>Líneas</div><div class="meta-right">3937</div></div>
+  <div class="hairline"></div><div class="lines"><div class="line">1</div><div class="line">2</div><div class="line">5</div><div class="line">12</div><div class="line">C6</div></div>
+</a>
+
+<!-- 11 -->
+<a class="stop" href="https://qr.vectalia.es/Alicante/consulta.aspx?p=4400">
+  <div class="band"><div class="icon-wrap"><img src="bus-20.svg" class="icon"></div>
+    <div><div class="title">Mercado</div><div class="subtitle-stop">San Vicente</div></div></div>
+  <div class="meta"><div>Líneas</div><div class="meta-right">4400</div></div>
+  <div class="hairline"></div><div class="lines"><div class="line">6</div><div class="line">9</div><div class="line">10</div></div>
+</a>
+
+<!-- 12 -->
+<a class="stop" href="https://qr.vectalia.es/Alicante/consulta.aspx?p=2902">
+  <div class="band"><div class="icon-wrap"><img src="bus-20.svg" class="icon"></div>
+    <div><div class="title">Mercado</div><div class="subtitle-stop">San Vicente</div></div></div>
+  <div class="meta"><div>Líneas</div><div class="meta-right">2902</div></div>
+  <div class="hairline"></div><div class="lines"><div class="line">1</div><div class="line">3</div><div class="line">24</div></div>
+</a>
+
+<!-- 13 -->
+<a class="stop" href="https://qr.vectalia.es/Alicante/consulta.aspx?p=4448">
+  <div class="band"><div class="icon-wrap"><img src="bus-20.svg" class="icon"></div>
+    <div><div class="title">O. Esplá</div><div class="subtitle-stop">Foglietti</div></div></div>
+  <div class="meta"><div>Líneas</div><div class="meta-right">3102</div></div>
+  <div class="hairline"></div><div class="lines"><div class="line">23</div></div>
+</a>
+
+<!-- 14 -->
+<a class="stop" href="https://qr.vectalia.es/Alicante/consulta.aspx?p=4760">
+  <div class="band"><div class="icon-wrap"><img src="bus-20.svg" class="icon"></div>
+    <div><div class="title">O. Esplá</div><div class="subtitle-stop">Estación</div></div></div>
+  <div class="meta"><div>Líneas</div><div class="meta-right">4760</div></div>
+  <div class="hairline"></div><div class="lines"><div class="line">7</div><div class="line">9</div></div>
+</a>
+
+<!-- 15 -->
+<a class="stop" href="https://qr.vectalia.es/Alicante/consulta.aspx?p=3126">
+  <div class="band"><div class="icon-wrap"><img src="bus-20.svg" class="icon"></div>
+    <div><div class="title">O. Esplá</div><div class="subtitle-stop">Sempere</div></div></div>
+  <div class="meta"><div>Líneas</div><div class="meta-right">3126</div></div>
+  <div class="hairline"></div><div class="lines"><div class="line">1</div><div class="line">2</div></div>
+</a>
+
+<!-- 16 -->
+<a class="stop" href="https://qr.vectalia.es/Alicante/consulta.aspx?p=6202">
+  <div class="band"><div class="icon-wrap"><img src="bus-20.svg" class="icon"></div>
+    <div><div class="title">P. Galdós</div><div class="subtitle-stop">Marvá</div></div></div>
+  <div class="meta"><div>Líneas</div><div class="meta-right">6202</div></div>
+  <div class="hairline"></div><div class="lines"><div class="line">4</div></div>
+</a>
+
+<!-- 17 -->
+<a class="stop" href="https://qr.vectalia.es/Alicante/consulta.aspx?p=4082">
+  <div class="band"><div class="icon-wrap"><img src="bus-20.svg" class="icon"></div>
+    <div><div class="title">R. Altamira</div><div class="subtitle-stop">Ayuntamiento</div></div></div>
+  <div class="meta"><div>Líneas</div><div class="meta-right">4082</div></div>
+  <div class="hairline"></div><div class="lines"><div class="line">2</div><div class="line">3</div></div>
+</a>
+
+<!-- 18 -->
+<a class="stop" href="https://qr.vectalia.es/Alicante/consulta.aspx?p=4109">
+  <div class="band"><div class="icon-wrap"><img src="bus-20.svg" class="icon"></div>
+    <div><div class="title">R. Altamira</div><div class="subtitle-stop">Centro</div></div></div>
+  <div class="meta"><div>Líneas</div><div class="meta-right">4109</div></div>
+  <div class="hairline"></div><div class="lines"><div class="line">1</div><div class="line">5</div></div>
+</a>
 
 </div>
 
