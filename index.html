@@ -6,7 +6,6 @@
 <title>Autobús Alicante</title>
 
 <style>
-/* RESET BÁSICO */
 *,
 *::before,
 *::after { box-sizing: border-box; }
@@ -20,53 +19,47 @@ body {
   overflow-x: hidden;
 }
 
-/* =========================
-   HERO SUPERIOR - Liquid Glass
-========================= */
+/* HERO SUPERIOR */
 .hero {
   position: relative;
-  background: rgba(79,120,163,0.5);
+  background: rgba(79,120,163,0.7);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   padding: 22px 18px 60px;
   color: #fff;
-  border-bottom-left-radius: 24px;
-  border-bottom-right-radius: 24px;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
 }
 
 .hero-content {
   max-width: 720px;
   margin: 0 auto;
-  text-align: center;
-}
-
-/* Saludo */
-.greeting {
-  font-size: 1.4rem;
-  font-weight: 700;
-  margin-bottom: 8px;
-}
-
-/* Info fecha / clima */
-.hero-info {
   display: flex;
-  flex-direction: column;
-  gap: 6px;
-  margin-top: 6px;
+  justify-content: center;
+  gap: 18px;
+  align-items: center;
 }
 
 .hero-col { text-align: center; }
-.hero-label { font-size: 0.9rem; opacity: 0.85; }
+
+.hero-label { font-size: 0.9rem; opacity: 0.85; margin-bottom: 4px; }
 .hero-value { font-size: 1.05rem; font-weight: 600; }
 
-/* =========================
-   TARJETA FLOTANTE - Liquid Glass
-========================= */
+.hero-sep { width: 1px; background: rgba(255,255,255,0.4); align-self: stretch; }
+
+.greeting {
+  font-size: 1.4rem;
+  font-weight: 700;
+  text-align: center;
+  margin: 12px 0 8px;
+}
+
+/* TARJETA FLOTANTE */
 .floating-card {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  top: 120px; /* centrada sobre la tarjeta grande */
+  top: 180px;
   background: rgba(255,255,255,0.25);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
@@ -80,27 +73,24 @@ body {
   white-space: nowrap;
 }
 
-/* =========================
-   TARJETA GRANDE CON PARADAS - Liquid Glass
-========================= */
+/* TARJETA GRANDE CON PARADAS */
 .list {
   position: relative;
-  z-index: 1;
-  margin: -50px 14px 50px;
-  padding: 20px;
-  background: rgba(255,255,255,0.3);
+  margin: 100px 0 50px;
+  padding: 20px 0;
+  background: rgba(255,255,255,0.35);
   backdrop-filter: blur(25px);
   -webkit-backdrop-filter: blur(25px);
-  border-radius: 18px;
-  box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+  border-radius: 24px;
+  width: 100vw;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 14px;
+  overflow: hidden;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.1);
 }
 
-/* =========================
-   TARJETAS PARADAS - Liquid Glass
-========================= */
+/* TARJETAS PARADAS */
 .stop {
   display: block;
   text-decoration: none;
@@ -149,7 +139,6 @@ body {
 
 /* Meta */
 .meta { display: flex; justify-content: space-between; padding: 8px 12px; font-size: 0.75rem; color: #000; }
-.meta-left { font-weight: 500; }
 .meta-right { opacity: 0.6; }
 
 /* Separador */
@@ -174,18 +163,17 @@ body {
 
 <div class="hero">
   <div class="hero-content">
-    <div class="greeting" id="greeting"></div>
-    <div class="hero-info">
-      <div class="hero-col">
-        <div class="hero-label" id="today-day"></div>
-        <div class="hero-value" id="today-date"></div>
-      </div>
-      <div class="hero-col">
-        <div class="hero-label" id="weather-main"></div>
-        <div class="hero-value" id="weather-temp"></div>
-      </div>
+    <div class="hero-col">
+      <div class="hero-label" id="today-day"></div>
+      <div class="hero-value" id="today-date"></div>
+    </div>
+    <div class="hero-sep"></div>
+    <div class="hero-col">
+      <div class="hero-label" id="weather-main"></div>
+      <div class="hero-value" id="weather-temp"></div>
     </div>
   </div>
+  <div class="greeting" id="greeting"></div>
 </div>
 
 <div class="floating-card">
@@ -194,7 +182,7 @@ body {
 
 <div class="list">
 
-<!-- 18 PARADAS -->
+<!-- 18 PARADAS COMPLETAS -->
 <a class="stop c1" href="https://qr.vectalia.es/Alicante/consulta.aspx?p=4115">
 <div class="band"><div class="icon-wrap"><img src="bus-20.svg" class="icon"></div>
 <div><div class="title">Calderón</div><div class="subtitle-stop">La Lonja</div></div></div>
@@ -325,18 +313,18 @@ body {
 
 <a class="stop c5" href="https://qr.vectalia.es/Alicante/consulta.aspx?p=4082">
 <div class="band"><div class="icon-wrap"><img src="bus-20.svg" class="icon"></div>
-<div><div class="title">R. Altamira</div><div class="subtitle-stop">Cruz Roja</div></div></div>
+<div><div class="title">R. Altamira</div><div class="subtitle-stop">Ayuntamiento</div></div></div>
 <div class="meta"><div>Líneas</div><div class="meta-right">4082</div></div>
 <div class="hairline"></div>
-<div class="lines"><div class="line">5</div><div class="line">12</div></div>
+<div class="lines"><div class="line">3</div><div class="line">12</div></div>
 </a>
 
-<a class="stop c6" href="https://qr.vectalia.es/Alicante/consulta.aspx?p=4076">
+<a class="stop c6" href="https://qr.vectalia.es/Alicante/consulta.aspx?p=3901">
 <div class="band"><div class="icon-wrap"><img src="bus-20.svg" class="icon"></div>
-<div><div class="title">R. Altamira</div><div class="subtitle-stop">Oasis</div></div></div>
-<div class="meta"><div>Líneas</div><div class="meta-right">4076</div></div>
+<div><div class="title">R. Altamira</div><div class="subtitle-stop">Doctor Gadea</div></div></div>
+<div class="meta"><div>Líneas</div><div class="meta-right">3901</div></div>
 <div class="hairline"></div>
-<div class="lines"><div class="line">6</div><div class="line">9</div></div>
+<div class="lines"><div class="line">1</div><div class="line">3</div></div>
 </a>
 
 </div>
