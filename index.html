@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>🚌 Autobús Alicante</title>
 
-<style>
+<style>/* ===== RESET Y BASE ===== */
 * {
   box-sizing: border-box;
   -webkit-tap-highlight-color: transparent;
@@ -14,32 +14,16 @@
 
 body {
   margin: 0;
-  padding: 14px;
+  padding: 0;
   font-family: -apple-system, system-ui, sans-serif;
   background: #f3f3f1;
   color: #000;
-}
-
-/* ===== CABECERA ===== */
-.header-top { margin-bottom: 16px; }
-.greeting { font-size: 30px; font-weight: 800; }
-.date { font-size: 15px; color: rgba(0,0,0,0.55); margin-top: 2px; }
-.divider { height: 1px; background: rgba(0,0,0,0.08); margin: 12px 0; }
-.subtitle { font-size: 16px; opacity: 0.65; }
-
-/* ===== GRID ===== */
-.list {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 14px;
 }
 
 /* ===== HERO SUPERIOR ===== */
 .hero {
   background: linear-gradient(180deg, #3a6ea5, #2f5f8f);
   padding: 22px 18px 60px;
-  border-bottom-left-radius: 28px;
-  border-bottom-right-radius: 28px;
   color: #fff;
 }
 
@@ -56,10 +40,12 @@ body {
 .hero-info {
   display: flex;
   align-items: center;
+  justify-content: center;
 }
 
 .hero-col {
   flex: 1;
+  text-align: center;
 }
 
 .hero-label {
@@ -75,13 +61,15 @@ body {
 
 .hero-sep {
   width: 1px;
-  height: 36px;
+  align-self: stretch;
   background: rgba(255,255,255,0.35);
-  margin: 0 14px;
+  margin: 0 18px;
 }
 
 /* ===== TARJETA FLOTANTE ===== */
 .floating-card {
+  position: relative;
+  z-index: 5;
   margin: -26px 8px 16px;
   padding: 14px 18px;
   background: rgba(255,255,255,0.95);
@@ -96,23 +84,47 @@ body {
     0 4px 10px rgba(0,0,0,0.10),
     inset 0 1px 0 rgba(255,255,255,0.6);
 }
-  
-/* ===== TARJETA ===== */
+
+/* ===== CONTENEDOR PRINCIPAL (TARJETA GRANDE) ===== */
+.list {
+  margin-top: -28px;
+  padding: 18px 14px 14px;
+  background: #f3f3f1;
+  border-top-left-radius: 32px;
+  border-top-right-radius: 32px;
+
+  box-shadow:
+    0 -1px 0 rgba(255,255,255,0.6),
+    0 -6px 14px rgba(0,0,0,0.08);
+
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+}
+
+/* ===== TARJETAS DE PARADA ===== */
 .stop {
   padding: 12px;
   border-radius: 24px;
   text-decoration: none;
   background: rgba(255,255,255,0.94);
   backdrop-filter: blur(14px);
-  box-shadow: 0 3px 8px rgba(0,0,0,.10), inset 0 1px 0 rgba(255,255,255,.6);
-  transition: transform .15s cubic-bezier(.25,.8,.25,1), box-shadow .15s;
+
+  box-shadow:
+    0 3px 8px rgba(0,0,0,.10),
+    inset 0 1px 0 rgba(255,255,255,.6);
+
+  transition:
+    transform .15s cubic-bezier(.25,.8,.25,1),
+    box-shadow .15s;
 }
+
 .stop:active {
   transform: scale(.97);
   box-shadow: 0 2px 5px rgba(0,0,0,.12);
 }
 
-/* ===== FRANJA ===== */
+/* ===== FRANJA DE COLOR ===== */
 .band {
   display: flex;
   align-items: center;
@@ -132,22 +144,63 @@ body {
   align-items: center;
   justify-content: center;
 }
-.icon { width: 24px; height: 24px; }
 
-/* ===== TEXTO ===== */
-.title { font-size: 15px; font-weight: 700; color: #fff; line-height: 1.1; }
-.subtitle-stop { font-size: 13px; color: rgba(255,255,255,.75); }
+.icon {
+  width: 24px;
+  height: 24px;
+}
 
-.meta { display: flex; justify-content: space-between; }
-.meta-left { font-size: 13px; color: rgba(0,0,0,.55); }
-.meta-right { font-size: 14px; font-weight: 600; color: #000; }
+/* ===== TEXTO FRANJA ===== */
+.title {
+  font-size: 15px;
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.1;
+}
 
-.hairline { height: .5px; background: rgba(0,0,0,.15); margin: 6px 0 8px; }
+.subtitle-stop {
+  font-size: 13px;
+  color: rgba(255,255,255,.75);
+}
 
-.lines { display: flex; gap: 10px; padding-bottom: 6px; }
-.line { font-size: 16px; font-weight: 500; color: #000; }
+/* ===== META ===== */
+.meta {
+  display: flex;
+  justify-content: space-between;
+}
 
-/* ===== COLORES ===== */
+.meta-left {
+  font-size: 13px;
+  color: rgba(0,0,0,.55);
+}
+
+.meta-right {
+  font-size: 14px;
+  font-weight: 600;
+  color: #000;
+}
+
+/* ===== SEPARADOR FINO ===== */
+.hairline {
+  height: .5px;
+  background: rgba(0,0,0,.15);
+  margin: 6px 0 8px;
+}
+
+/* ===== LÍNEAS ===== */
+.lines {
+  display: flex;
+  gap: 10px;
+  padding-bottom: 6px;
+}
+
+.line {
+  font-size: 16px;
+  font-weight: 500;
+  color: #000;
+}
+
+/* ===== COLORES SUAVES ===== */
 .c1 .band { background: linear-gradient(135deg,#6aa9ff,#4d8fe6); }
 .c2 .band { background: linear-gradient(135deg,#6fd1a8,#52b989); }
 .c3 .band { background: linear-gradient(135deg,#f2c27b,#e1a556); }
@@ -357,27 +410,82 @@ body {
 </div>
 
 <script>
+const API_KEY = "TU_API_KEY_AQUI";
+const CITY = "Alicante,ES";
+
+/* ===== FECHA Y SALUDO ===== */
 const now = new Date();
-const h = now.getHours();
+const hour = now.getHours();
 
 let greeting = "Buenos días";
-if (h >= 14 && h < 20) greeting = "Buenas tardes";
-if (h >= 20 || h < 6) greeting = "Buenas noches";
+if (hour >= 14 && hour < 20) greeting = "Buenas tardes";
+if (hour >= 20 || hour < 6) greeting = "Buenas noches";
 
 document.getElementById("greeting").textContent = greeting + ", Georgi";
 
-const dayOptions = { weekday: "long" };
-const dateOptions = { day: "numeric", month: "long", year: "numeric" };
-
+// Día con mayúscula
+const dayRaw = now.toLocaleDateString("es-ES", { weekday: "long" });
 document.getElementById("today-day").textContent =
-  now.toLocaleDateString("es-ES", dayOptions);
+  dayRaw.charAt(0).toUpperCase() + dayRaw.slice(1);
 
+// Fecha completa
 document.getElementById("today-date").textContent =
-  now.toLocaleDateString("es-ES", dateOptions);
+  now.toLocaleDateString("es-ES", {
+    day: "numeric",
+    month: "long",
+    year: "numeric"
+  });
 
-// ⚠️ Clima fijo de momento (luego se puede conectar a API)
-document.getElementById("weather-main").textContent = "Soleado";
-document.getElementById("weather-temp").textContent = "18° · máx 22° / mín 12°";
+/* ===== CLIMA (OPENWEATHER) ===== */
+fetch(`https://api.openweathermap.org/data/2.5/weather?q=${CITY}&units=metric&lang=es&appid=${API_KEY}`)
+  .then(res => res.json())
+  .then(data => {
+    const temp = Math.round(data.main.temp);
+    const max = Math.round(data.main.temp_max);
+    const min = Math.round(data.main.temp_min);
+    const desc = data.weather[0].description;
+
+    document.getElementById("weather-main").textContent =
+      desc.charAt(0).toUpperCase() + desc.slice(1);
+
+    document.getElementById("weather-temp").textContent =
+      `${temp}° · máx ${max}° / mín ${min}°`;
+
+    setHeroColor(desc, hour);
+  })
+  .catch(() => {
+    document.getElementById("weather-main").textContent = "Clima no disponible";
+  });
+
+/* ===== COLOR DINÁMICO DEL HERO ===== */
+function setHeroColor(desc, hour) {
+  const hero = document.querySelector(".hero");
+
+  // Noche
+  if (hour >= 20 || hour < 6) {
+    hero.style.background =
+      "linear-gradient(180deg, #1f2a44, #162036)";
+    return;
+  }
+
+  // Lluvia
+  if (desc.includes("lluv")) {
+    hero.style.background =
+      "linear-gradient(180deg, #4b6c8a, #3a546b)";
+    return;
+  }
+
+  // Nubes
+  if (desc.includes("nube")) {
+    hero.style.background =
+      "linear-gradient(180deg, #6c7f8f, #556572)";
+    return;
+  }
+
+  // Sol / despejado
+  hero.style.background =
+    "linear-gradient(180deg, #3a6ea5, #2f5f8f)";
+}
 </script>
 
 </body>
