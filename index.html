@@ -34,6 +34,69 @@ body {
   gap: 14px;
 }
 
+/* ===== HERO SUPERIOR ===== */
+.hero {
+  background: linear-gradient(180deg, #3a6ea5, #2f5f8f);
+  padding: 22px 18px 60px;
+  border-bottom-left-radius: 28px;
+  border-bottom-right-radius: 28px;
+  color: #fff;
+}
+
+.hero-content {
+  max-width: 100%;
+}
+
+.hero .greeting {
+  font-size: 28px;
+  font-weight: 800;
+  margin-bottom: 14px;
+}
+
+.hero-info {
+  display: flex;
+  align-items: center;
+}
+
+.hero-col {
+  flex: 1;
+}
+
+.hero-label {
+  font-size: 14px;
+  opacity: 0.8;
+}
+
+.hero-value {
+  font-size: 16px;
+  font-weight: 600;
+  margin-top: 2px;
+}
+
+.hero-sep {
+  width: 1px;
+  height: 36px;
+  background: rgba(255,255,255,0.35);
+  margin: 0 14px;
+}
+
+/* ===== TARJETA FLOTANTE ===== */
+.floating-card {
+  margin: -26px 8px 16px;
+  padding: 14px 18px;
+  background: rgba(255,255,255,0.95);
+  backdrop-filter: blur(14px);
+  border-radius: 22px;
+  text-align: center;
+  font-size: 16px;
+  font-weight: 500;
+  color: rgba(0,0,0,0.65);
+
+  box-shadow:
+    0 4px 10px rgba(0,0,0,0.10),
+    inset 0 1px 0 rgba(255,255,255,0.6);
+}
+  
 /* ===== TARJETA ===== */
 .stop {
   padding: 12px;
@@ -99,11 +162,28 @@ body {
 
 <body>
 
-<div class="header-top">
-  <div class="greeting" id="greeting"></div>
-  <div class="date" id="date"></div>
-  <div class="divider"></div>
-  <div class="subtitle">Selecciona la parada que deseas consultar</div>
+<div class="hero">
+  <div class="hero-content">
+    <div class="greeting" id="greeting"></div>
+
+    <div class="hero-info">
+      <div class="hero-col">
+        <div class="hero-label" id="today-day"></div>
+        <div class="hero-value" id="today-date"></div>
+      </div>
+
+      <div class="hero-sep"></div>
+
+      <div class="hero-col">
+        <div class="hero-label" id="weather-main">Soleado</div>
+        <div class="hero-value" id="weather-temp">18° · máx 22° / mín 12°</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="floating-card">
+  Selecciona la parada que deseas consultar
 </div>
 
 <div class="list">
@@ -279,13 +359,25 @@ body {
 <script>
 const now = new Date();
 const h = now.getHours();
-let g = "Buenos días";
-if (h >= 14 && h < 20) g = "Buenas tardes";
-if (h >= 20 || h < 6) g = "Buenas noches";
-document.getElementById("greeting").textContent = g + ", Georgi";
 
-document.getElementById("date").textContent =
-  now.toLocaleDateString("es-ES", { weekday:"long", day:"numeric", month:"long", year:"numeric" });
+let greeting = "Buenos días";
+if (h >= 14 && h < 20) greeting = "Buenas tardes";
+if (h >= 20 || h < 6) greeting = "Buenas noches";
+
+document.getElementById("greeting").textContent = greeting + ", Georgi";
+
+const dayOptions = { weekday: "long" };
+const dateOptions = { day: "numeric", month: "long", year: "numeric" };
+
+document.getElementById("today-day").textContent =
+  now.toLocaleDateString("es-ES", dayOptions);
+
+document.getElementById("today-date").textContent =
+  now.toLocaleDateString("es-ES", dateOptions);
+
+// ⚠️ Clima fijo de momento (luego se puede conectar a API)
+document.getElementById("weather-main").textContent = "Soleado";
+document.getElementById("weather-temp").textContent = "18° · máx 22° / mín 12°";
 </script>
 
 </body>
