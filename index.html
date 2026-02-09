@@ -65,18 +65,50 @@ body{
 
 /* ===== FLOTANTE ===== */
 .floating{
-  position:absolute;
+  position: relative;
+  overflow: hidden;
+  box-shadow:
+    0 8px 24px rgba(0,0,0,0.12),
+    inset 0 1px 0 rgba(255,255,255,0.4);
   top:0;
   left:50%;
   transform:translate(-50%,-50%);
-  background:rgba(255,255,255,.65);
-  backdrop-filter:blur(22px);
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255,255,255,0.65),
+      rgba(255,255,255,0.45)
+    );
+  backdrop-filter: blur(20px) saturate(160%);
+  -webkit-backdrop-filter: blur(20px) saturate(160%);
   padding:14px 22px;
   border-radius:18px;
   font-weight:500;
   white-space:nowrap;
   box-shadow:0 10px 28px rgba(0,0,0,.18);
   z-index:10;
+}
+
+.card::before,
+.floating::before {
+  content: "";
+  position: relative;
+  overflow: hidden;
+  box-shadow:
+    0 8px 24px rgba(0,0,0,0.12),
+    inset 0 1px 0 rgba(255,255,255,0.4);
+  inset: 0;
+  border-radius: inherit;
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255,255,255,0.65),
+      rgba(255,255,255,0.45)
+    );
+  backdrop-filter: blur(20px) saturate(160%);
+  -webkit-backdrop-filter: blur(20px) saturate(160%);
+  );
+  pointer-events: none;
 }
 
 /* ===== TARJETA GRANDE ===== */
@@ -100,7 +132,9 @@ body{
   border-radius:18px;
   text-decoration:none;
   color:inherit;
-  box-shadow:0 4px 12px rgba(0,0,0,.12);
+  box-shadow:
+    0 8px 24px rgba(0,0,0,0.12),
+    inset 0 1px 0 rgba(255,255,255,0.4);
   overflow:hidden;
 }
 
@@ -138,10 +172,10 @@ body{
 
 .meta-right{opacity:.7}
 
-.hairline{
-  height:1px;
-  background:rgba(0,0,0,.08);
-  margin:0 12px;
+.hairline {
+  height: 0.5px;
+  background: rgba(0,0,0,0.15);
+  transform: scaleY(0.5);
 }
 
 .lines{
@@ -165,6 +199,40 @@ body{
 .stop:nth-child(6n+4) .band{background:#d2a15f}
 .stop:nth-child(6n+5) .band{background:#9a9fa6}
 .stop:nth-child(6n)   .band{background:#8f7fbf}
+
+@media (prefers-color-scheme: dark) {
+
+  body {
+    background: #0f1115;
+    color: #f2f2f7;
+  }
+
+  .header-bg {
+    background: linear-gradient(
+      180deg,
+      #1c1c1e,
+      #0f1115
+    );
+  }
+
+  .card,
+  .floating,
+  .stop {
+    background: rgba(28,28,30,0.7);
+    backdrop-filter: blur(24px) saturate(160%);
+    -webkit-backdrop-filter: blur(24px) saturate(160%);
+  }
+
+  .hairline {
+    background: rgba(255,255,255,0.18);
+  }
+
+  .line {
+    background: rgba(10,132,255,0.22);
+    color: #0a84ff;
+  }
+}  
+
 </style>
 </head>
 
